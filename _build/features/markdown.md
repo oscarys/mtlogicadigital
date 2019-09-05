@@ -1,11 +1,11 @@
 ---
-title: 'Markdown files'
+title: 'Algebra de conmutación'
 prev_page:
   url: /features/features
-  title: 'Features and customization'
+  title: 'Álgebra de conmutación'
 next_page:
   url: /features/notebooks
-  title: 'Jupyter notebooks'
+  title: 'Conjuntos completos de operadores lógicos'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Creating book content

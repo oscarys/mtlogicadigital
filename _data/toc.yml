@@ -22,35 +22,177 @@
 # See the links below for an example.
 
 # Top-level page
-- title: Home
+#- title: Home
+#  url: /intro
+#  not_numbered: true
+
+# External link
+#- title: GitHub repository
+#  url: https://github.com/jupyter/jupyter-book
+#  external: true
+#  not_numbered: true
+
+# Adds a searchbar link
+#- title: Search
+#  search: true
+
+# Divider for meta-pages and content page
+#- divider: true
+
+# Add a header and sample content section
+#- header: Demo textbook
+
+# A chapter w/ a collection of sections beneath it
+#- title: Features and customization
+#  url: /features/features
+#  not_numbered: true
+#  expand_sections: true
+#  sections:
+#  - title: Markdown files
+#    url: /features/markdown
+#    not_numbered: true
+#  - title: Jupyter notebooks
+#    url: /features/notebooks
+#    not_numbered: true
+
+- title: Inicio
   url: /intro
   not_numbered: true
 
-# External link
-- title: GitHub repository
-  url: https://github.com/jupyter/jupyter-book
-  external: true
-  not_numbered: true
-
-# Adds a searchbar link
-- title: Search
+- title: Buscar
   search: true
 
-# Divider for meta-pages and content page
 - divider: true
+- header: Matemáticas de la lógica digital
 
-# Add a header and sample content section
-- header: Demo textbook
-
-# A chapter w/ a collection of sections beneath it
-- title: Features and customization
+- title: Álgebra de conmutación
   url: /features/features
   not_numbered: true
-  expand_sections: true
+  expand_sections: false
   sections:
-  - title: Markdown files
+  - title: Algebra de conmutación
     url: /features/markdown
     not_numbered: true
-  - title: Jupyter notebooks
+  - title: Conjuntos completos de operadores lógicos
     url: /features/notebooks
+    not_numbered: true
+  - title: Funciones lógicas
+    url: /features/notebooks
+    not_numbered: true
+  - title: Expansiones canónicas - Suma de productos, producto de sumas y suma exclusiva de productos
+    url: /features/notebooks
+    not_numbered: true
+
+- title: Autómatas de estados finitos
+  url: /features/features
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Sistemas discretos
+    url: /features/markdown
+    not_numbered: true
+  - title: Estado y transición de estados
+    url: /features/markdown
+    not_numbered: true
+  - title: Diagramas de transición y pruebas de validez
+    url: /features/markdown
+    not_numbered: true
+  - title: Máquinas de estado algorítmicas y pruebas de validez
+    url: /features/markdown
+    not_numbered: true
+
+- title: Aritmética digital
+  url: /features/features
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Sistemas numéricos 
+    url: /features/markdown
+    not_numbered: true
+  - title: Representación digital de números negativos 
+    url: /features/markdown
+    not_numbered: true
+  - title: Operaciones aritméticas con representaciones en complemento 
+    url: /features/markdown
+    not_numbered: true
+  - title: Códigos binarios y sus aplicaciones
+    url: /features/markdown
+    not_numbered: true
+
+- divider: true
+- header: Electrónica de la lógica digital
+ 
+- title: Electrónica de conmutación
+  url: /features/features
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Transistores en régimen de conmutación
+    url: /features/markdown
+    not_numbered: true
+  - title: Par complementario de transistores MOS
+    url: /features/markdown
+    not_numbered: true
+  - title: Compuertas CMOS 
+    url: /features/markdown
+    not_numbered: true
+  - title: Circuitos de dos niveles
+    url: /features/markdown
+    not_numbered: true
+  - title: Multiplexores, decodificadores y memorias
+    url: /features/markdown
+    not_numbered: true
+
+- divider: true
+- header: Diseño digital moderno
+
+- title: Lógica reconfigurable
+  url: /features/features
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Arquitecturas
+    url: /features/markdown
+    not_numbered: true
+  - title: Flujo de diseño 
+    url: /features/markdown
+    not_numbered: true
+  - title: Lenguajes de descripción de hardware 
+    url: /features/markdown
+    not_numbered: true
+  - title: Traducción de tablas de verdad 
+    url: /features/markdown
+    not_numbered: true
+  - title: Traducción de diagramas de transición 
+    url: /features/markdown
+    not_numbered: true
+  - title: Traducción de máquinas de estado algorítmicas 
+    url: /features/markdown
+    not_numbered: true
+
+- title: Aplicaciones diversas
+  url: /features/features
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: 
+    url: /features/markdown
+    not_numbered: true
+  - title: Convertidor binario a BCD
+    url: /features/markdown
+    not_numbered: true
+  - title: Comparador de magnitud 
+    url: /features/markdown
+    not_numbered: true
+  - title: Unidad lógica-aritmética 
+    url: /features/markdown
+    not_numbered: true
+  - title: Multiplicador-acumulador 
+    url: /features/markdown
+    not_numbered: true
+  - title: Secuenciador cableado 
+    url: /features/markdown
+    not_numbered: true
+  - title: Secuenciador microprogramado 
+    url: /features/markdown
     not_numbered: true

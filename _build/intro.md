@@ -1,11 +1,11 @@
 ---
-title: 'Home'
+title: 'Inicio'
 prev_page:
   url: 
   title: ''
 next_page:
-  url: https://github.com/jupyter/jupyter-book
-  title: 'GitHub repository'
+  url: /features/features
+  title: 'Álgebra de conmutación'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Books with Jupyter and Jekyll

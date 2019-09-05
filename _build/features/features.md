@@ -1,11 +1,11 @@
 ---
-title: 'Features and customization'
+title: 'Álgebra de conmutación'
 prev_page:
-  url: https://github.com/jupyter/jupyter-book
-  title: 'GitHub repository'
+  url: /intro
+  title: 'Inicio'
 next_page:
   url: /features/markdown
-  title: 'Markdown files'
+  title: 'Algebra de conmutación'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Features
