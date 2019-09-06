@@ -66,133 +66,141 @@
 - header: Matemáticas de la lógica digital
 
 - title: Álgebra de conmutación
-  url: /features/features
+  url: matematicas/algebra/algebra_indice
   not_numbered: true
   expand_sections: false
   sections:
   - title: Algebra de conmutación
-    url: /features/markdown
+    url: matematicas/algebra/algebra_conmutacion
     not_numbered: true
   - title: Conjuntos completos de operadores lógicos
-    url: /features/notebooks
+    url: matematicas/algebra/conjuntos_completos
     not_numbered: true
   - title: Funciones lógicas
-    url: /features/notebooks
+    url: matematicas/algebra/funciones_logicas
     not_numbered: true
-  - title: Expansiones canónicas - Suma de productos, producto de sumas y suma exclusiva de productos
-    url: /features/notebooks
+  - title: Expansiones canónicas
+    url: matematicas/algebra/expansiones_canonicas
+    not_numbered: true
+  - title: Minimización de funciones lógicas
+    url: notebooks/minimizacion
     not_numbered: true
 
 - title: Autómatas de estados finitos
-  url: /features/features
+  url: matematicas/automatas/automatas_indice
   not_numbered: true
   expand_sections: false
   sections:
   - title: Sistemas discretos
-    url: /features/markdown
+    url: matematicas/automatas/sistemas_discretos
     not_numbered: true
   - title: Estado y transición de estados
-    url: /features/markdown
+    url: matematicas/automatas/estado_transiciones
     not_numbered: true
   - title: Diagramas de transición y pruebas de validez
-    url: /features/markdown
+    url: matematicas/automatas/dte
     not_numbered: true
   - title: Máquinas de estado algorítmicas y pruebas de validez
-    url: /features/markdown
+    url: matematicas/automatas/asm
     not_numbered: true
 
 - title: Aritmética digital
-  url: /features/features
+  url: matematicas/aritmetica/aritmetica_indice
   not_numbered: true
   expand_sections: false
   sections:
   - title: Sistemas numéricos 
-    url: /features/markdown
+    url: matematicas/aritmetica/sistemas_numericos
     not_numbered: true
   - title: Representación digital de números negativos 
-    url: /features/markdown
+    url: matematicas/aritmetica/complemento_dos
     not_numbered: true
   - title: Operaciones aritméticas con representaciones en complemento 
-    url: /features/markdown
+    url: matematicas/aritmetica/operaciones_complemento
     not_numbered: true
   - title: Códigos binarios y sus aplicaciones
-    url: /features/markdown
+    url: matematicas/aritmetica/codigos
     not_numbered: true
 
 - divider: true
 - header: Electrónica de la lógica digital
  
 - title: Electrónica de conmutación
-  url: /features/features
+  url: electronica/conmutacion/electronica_indice
   not_numbered: true
   expand_sections: false
   sections:
-  - title: Transistores en régimen de conmutación
-    url: /features/markdown
+  - title: Transistores bipolares en régimen de conmutación
+    url: electronica/conmutacion/conmutacion_bjt
     not_numbered: true
-  - title: Par complementario de transistores MOS
-    url: /features/markdown
+  - title: Transistores MOS en régimen de conmutación
+    url: electronica/conmutacion/conmutacion_mos
     not_numbered: true
-  - title: Compuertas CMOS 
-    url: /features/markdown
+- title: Tecnología CMOS
+  url: electronica/cmos/par_cmos
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Par complementario de transistores MOS 
+    url: electronica/cmos/par_cmos
     not_numbered: true
   - title: Circuitos de dos niveles
-    url: /features/markdown
+    url: electronica/cmos/circuitos_dos_niveles
     not_numbered: true
   - title: Multiplexores, decodificadores y memorias
-    url: /features/markdown
+    url: electronica/cmos/muxes_decoders_memorias
     not_numbered: true
 
 - divider: true
 - header: Diseño digital moderno
 
 - title: Lógica reconfigurable
-  url: /features/features
+  url: reconfig/reconfig_indice
   not_numbered: true
   expand_sections: false
   sections:
   - title: Arquitecturas
-    url: /features/markdown
+    url: reconfig/arquitecturas_reconfigurables
     not_numbered: true
   - title: Flujo de diseño 
-    url: /features/markdown
+    url: reconfig/flujo_diseno
     not_numbered: true
   - title: Lenguajes de descripción de hardware 
-    url: /features/markdown
+    url: reconfig/hdls 
     not_numbered: true
   - title: Traducción de tablas de verdad 
-    url: /features/markdown
+    url: reconfig/tablas_verdad_hdl 
     not_numbered: true
   - title: Traducción de diagramas de transición 
-    url: /features/markdown
+    url: reconfig/std_hdl
     not_numbered: true
   - title: Traducción de máquinas de estado algorítmicas 
-    url: /features/markdown
+    url: reconfig/asm_hdl
     not_numbered: true
 
 - title: Aplicaciones diversas
-  url: /features/features
+  url: aplicaciones/aplicaciones_indice
   not_numbered: true
   expand_sections: false
   sections:
-  - title: 
-    url: /features/markdown
-    not_numbered: true
   - title: Convertidor binario a BCD
-    url: /features/markdown
+    url: aplicaciones/convertidor_binario_bcd
     not_numbered: true
   - title: Comparador de magnitud 
-    url: /features/markdown
+    url: aplicaciones/comparador_magnitud
+    not_numbered: true
+  - title: Filtro digital FIR 
+    url: aplicaciones/filtro_fir
     not_numbered: true
   - title: Unidad lógica-aritmética 
-    url: /features/markdown
+    url: aplicaciones/alu
     not_numbered: true
   - title: Multiplicador-acumulador 
-    url: /features/markdown
+    url: aplicaciones/mac
     not_numbered: true
   - title: Secuenciador cableado 
-    url: /features/markdown
+    url: aplicaciones/secuenciador_cableado
     not_numbered: true
   - title: Secuenciador microprogramado 
-    url: /features/markdown
+    url: aplicaciones/secuenciador_microprogramado
     not_numbered: true

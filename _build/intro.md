@@ -4,60 +4,35 @@ prev_page:
   url: 
   title: ''
 next_page:
-  url: /features/features
+  url: /matematicas/algebra/algebra_indice
   title: 'Álgebra de conmutación'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-# Books with Jupyter and Jekyll
+![Logos UIA UAM-I](images/logo/portada_libro.png)
 
-<img src="https://circleci.com/gh/jupyter/jupyter-book.svg?style=svg" class="left">
+En este libro proponemos abordar el diseño de soluciones de lógica digital como problemas de matemáticas discretas aplicadas, separando claramente los fundamentos teóricos, las implementaciones electrónicas de las variables y funciones lógicas, y la formulación moderna de soluciones digitales en lógica reconfigurable.
 
-Jupyter Books lets you build an online book using a collection of Jupyter Notebooks
-and Markdown files. Its output is similar to the excellent [Bookdown](https://bookdown.org/yihui/bookdown/) tool,
-and adds extra functionality for people running a Jupyter stack.
+<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png" alt="License" width="100" align="left"/>   2019 U Iberoamericana y UAM Iztapalapa
 
-For an example of a book built with Jupyter Books, see the [textbook for Data 100](https://www.textbook.ds100.org/) at UC Berkeley.
+Algunas cosas que hacen diferente a este libro respecto a los cientos de libros de lógica digital existentes son:
 
-Here are a few features of Jupyter Books
+* cada problema tiene una solución matemática formal
+* la versión electrónica es interactiva, gracias al uso de [Python](https://www.python.org) y [jupyter](https://jupyter.org)
+* solo se presentan descripciones de hardware `sintetizables`
 
-* All course content is written in markdown and Jupyter Notebooks, stored in `notebooks/`
-* The Jupyter Book repo comes packaged with helper scripts to convert these into Jekyll pages (in `scripts/`) that can be hosted for free on GitHub
-* Pages can have [Binder](https://mybinder.org) or JupyterHub links automatically added for interactivity.
-* The website itself is based on Jekyll, and is highly extensible and can be freely-hosted on GitHub.
-* There are lots of nifty HTML features under-the-hood, such as Turbolinks fast-navigation and
-  click-to-copy in code cells.
+### Para comenzar ...
 
-## Getting started
+... dependiendo de tu conocimiento previo, puedes saltar a
 
-To get started, you may be interested in the following links.
-Here are a few links of interest:
+* las **[matemáticas](features/features)** de la lógica digital,
+* la **[electrónica](features/features)** de la lógica digital,
+* las técnicas modernas de **[diseño](features/features)** de soluciones,
+* o a las **[aplicaciones](features/features)**
 
-* **[Quickstart](features/features)** is a quick demo and overview of Jupyter Books.
+### Reconocimientos
 
-* **[The Jupyter Book Guide](guide/01_overview)**
-  will step you through the process of configuring and building your own Jupyter Book.
+El abordaje de estos temas es el resultado de los años combinados de los autores dando clases de Lógica Digital en la U Iberoamericana y la UAM Iztapalapa
 
-* **[The Jupyter Book template repo](https://github.com/jupyter/jupyter-book)** is the template
-  repository you'll use as a start for your Jupyter Book.
 
-* **A demo of the Jupyter Book** can be browsed via the sidebar to the left.
 
-## Installation
 
-Here's a brief rundown of how to create your own Jupyter Book using this site. For a more
-complete guide, see [the Jupyter Book guide](guide/01_overview).
-
-* Fork the Jupyter Book template repo
-* Replace the demo notebooks in `content/` with your own notebooks and markdown files.
-* Create a Table of Contents yaml file by editing `_data/toc.yaml`.
-* Generate the Jekyll markdown for your notebooks by running `scripts/generate_book.py`
-* Push your changes to GitHub (or wherever you host your site)!
-
-## Acknowledgements
-
-Jupyter Books was originally created by [Sam Lau][sam] and [Chris Holdgraf][chris]
-with support of the **UC Berkeley Data Science Education Program and the Berkeley
-Institute for Data Science**.
-
-[sam]: http://www.samlau.me/
-[chris]: https://predictablynoisy.com

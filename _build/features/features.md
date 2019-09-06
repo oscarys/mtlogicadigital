@@ -1,11 +1,11 @@
 ---
-title: 'Álgebra de conmutación'
+title: 'Autómatas de estados finitos'
 prev_page:
-  url: /intro
-  title: 'Inicio'
+  url: /notebooks/minimizacion
+  title: 'Minimización de funciones lógicas'
 next_page:
-  url: /features/markdown
-  title: 'Algebra de conmutación'
+  url: /matematicas/automatas/sistemas_discretos
+  title: 'Sistemas discretos'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Features
