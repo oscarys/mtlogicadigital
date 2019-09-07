@@ -1,1 +1,0 @@
-# Representación de números negativos
