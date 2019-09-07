@@ -36,10 +36,10 @@ Algunas cosas que hacen diferente a este libro respecto a los cientos de libros 
 
 ... dependiendo de tu conocimiento previo, puedes saltar a
 
-* las **[matemáticas](features/features)** de la lógica digital,
-* la **[electrónica](features/features)** de la lógica digital,
-* las técnicas modernas de **[diseño](features/features)** de soluciones,
-* o a las **[aplicaciones](features/features)**
+* las **[matemáticas](matematicas/algebra/00_algebra_indice)** de la lógica digital,
+* la **[electrónica](electronica/conmutacion/00_electronica_indice)** de la lógica digital,
+* las técnicas modernas de **[diseño](reconfig/00_reconfig_indice)** de soluciones,
+* o a las **[aplicaciones](aplicaciones/00_aplicaciones_indice)**
 
 ### Reconocimientos
 

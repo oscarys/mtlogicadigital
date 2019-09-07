@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147229743-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147229743-1');
+</script>
+
 
   <head>
   <meta charset="utf-8">
@@ -29,9 +39,9 @@
   "headline":
     "Search the site",
   "datePublished":
-    "2019-09-06T21:38:00-05:00",
+    "2019-09-06T22:03:18-05:00",
   "dateModified":
-    "2019-09-06T21:38:00-05:00",
+    "2019-09-06T22:03:18-05:00",
   "description":
     "(confeccionado con jupyter-book).",
   "author": {
@@ -1428,7 +1438,335 @@ initFunction(initQuery);
 
 <script>
     // Add the lunr store since we will now search it
-    var store = []
+    var store = [{
+        "title": "Inicio",
+        
+        "excerpt":
+            "En este libro proponemos abordar el diseño de soluciones de lógica digital como problemas de matemáticas discretas aplicadas, separando claramente los fundamentos teóricos, las implementaciones electrónicas de las variables y funciones lógicas, y la formulación moderna de soluciones digitales en lógica reconfigurable. Algunas cosas que hacen diferente a este libro respecto a los cientos de libros de lógica digital existentes son: cada problema tiene una solución matemática formal la versión electrónica es interactiva, gracias al uso de Python y jupyter. Si te interersa ver el código de las demostraciones y ejercicios, da click en el símbolo “+” que verás a...",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/00_intro.html",
+        "teaser":null},{
+        "title": "Aplicaciones diversas",
+        
+        "excerpt":
+            "APLICACIONES   (intro del capítulo)   Índice del capítulo      Convertidor de binario  a BCD   Comparador de magnitud   Filtro digital FIR   Unidad lógica-aritmética   Multiplicador-acumulador (MAC)   Secuenciador cableado   Secuenciador microprogramado   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/00_aplicaciones_indice.html",
+        "teaser":null},{
+        "title": "Convertidor binario a BCD",
+        
+        "excerpt":
+            "Convertidor binario-BCD   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/10_convertidor_binario_bcd.html",
+        "teaser":null},{
+        "title": "Comparador de magnitud",
+        
+        "excerpt":
+            "Comparador de magnitud   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/20_comparador_magnitud.html",
+        "teaser":null},{
+        "title": "Filtro digital FIR",
+        
+        "excerpt":
+            "Filtro digital FIR library ieee; use ieee.std_logic_1164.all; use ieee.numeric_std.all; use work.types.all; library maths; use maths.maths_class.all; library matrix; use matrix.matrix_class.all; entity FIR_32tap_8_8 is port ( a : in std_logic_vector(7 downto 0); b : in logic_8_vector(31 downto 0); clock : in std_logic; reset : in std_logic; y : out std_logic_vector(20 downto 0) ); end FIR_32tap_8_8; architecture behavioural of FIR_32tap_8_8 is constant number_of_taps: integer := 32; signal data_table: single_vector(number_of_taps-1 downto 0); signal coefficient_table: single_vector(number_of_taps-1 downto 0); begin -- y &lt;= sum_over (0, k-1, a((k-1)-i), b(i)) -- coefficient_table &lt;= b; fir_algorithm: process (clock) variable data_out : single; variable fir_result : single; variable data_table_var: single_vector(number_of_taps-1...",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/30_filtro_fir.html",
+        "teaser":null},{
+        "title": "Unidad lógica-aritmética",
+        
+        "excerpt":
+            "Unidad lógica-aritmética (ALU)   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/40_alu.html",
+        "teaser":null},{
+        "title": "Multiplicador-acumulador",
+        
+        "excerpt":
+            "Multiplicador-acumulador (MAC)   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/50_mac.html",
+        "teaser":null},{
+        "title": "Secuenciador cableado",
+        
+        "excerpt":
+            "Secuenciador cableado   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/60_secuenciador_cableado.html",
+        "teaser":null},{
+        "title": "Secuenciador microprogramado",
+        
+        "excerpt":
+            "Secuenciador microprogramado   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/aplicaciones/70_secuenciador_microprogramado.html",
+        "teaser":null},{
+        "title": "Tecnología CMOS",
+        
+        "excerpt":
+            "TECNOLOGÍA CMOS   (intro al capítulo)   Índice del capítulo      Par complementario de transistores MOS   Circuitos de dos niveles   Multiplexores, decodificadores y memorias estáticas   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/cmos/00_cmos_indice.html",
+        "teaser":null},{
+        "title": "Par complementario de transistores MOS",
+        
+        "excerpt":
+            "Par complementario de transistores MOS   Inversor CMOS   Compuerta AND en CMOS   Compuerta OR en CMOS   Compuerta XOR en CMOS   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/cmos/10_par_cmos.html",
+        "teaser":null},{
+        "title": "Circuitos de dos niveles",
+        
+        "excerpt":
+            "Circuitos de dos niveles   Redes AND-OR   Redes OR-AND   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/cmos/20_circuitos_dos_niveles.html",
+        "teaser":null},{
+        "title": "Multiplexores, decodificadores y memorias",
+        
+        "excerpt":
+            "Multiplexores, decodificdores y memorias   Multiplexor / selector   Decodificador / demultiplexor   Memoria estática   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/cmos/30_muxes_decoders_memorias.html",
+        "teaser":null},{
+        "title": "Electrónica de conmutación",
+        
+        "excerpt":
+            "ELECTRÓNICA DE CONMUTACIÓN   (intro al capítulo)   Índice del capítulo      Transistor bipolar en régimen de conmutación   Transistor MOS en régimen de conmutación   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/conmutacion/00_electronica_indice.html",
+        "teaser":null},{
+        "title": "Transistores bipolares en régimen de conmutación",
+        
+        "excerpt":
+            "Transistores bipolares en conmutación   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/conmutacion/10_conmutacion_bjt.html",
+        "teaser":null},{
+        "title": "Transistores MOS en régimen de conmutación",
+        
+        "excerpt":
+            "Transistores MOS en conmutación   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/electronica/conmutacion/20_conmutacion_mos.html",
+        "teaser":null},{
+        "title": "Álgebra de conmutación",
+        
+        "excerpt":
+            "ÁLGEBRA DE CONMUTACIÓN   (intro al capítulo)   Índice del capítulo      Definiciones, axiomas y teoremas   Conjuntos completos de operadores lógicos   Funciones lógicas   Expansiones canónicas   Minimización de funciones lógicas   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/algebra/00_algebra_indice.html",
+        "teaser":null},{
+        "title": "Algebra de conmutación",
+        
+        "excerpt":
+            "Definiciones, axiomas y teoremas   (definiciones y axiomas)   Factorizaciones y distribuciones   Teorema de DeMorgan   Cobertura   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/algebra/10_algebra_conmutacion.html",
+        "teaser":null},{
+        "title": "Conjuntos completos de operadores lógicos",
+        
+        "excerpt":
+            "Conjuntos completos de operadores lógicos   AND-OR y NAND   OR-AND y NOR   XOR-AND   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/algebra/20_conjuntos_completos.html",
+        "teaser":null},{
+        "title": "Funciones lógicas",
+        
+        "excerpt":
+            "Funciones lógicas   Tablas de verdad           import pandas as pd  tt = pd.DataFrame(columns=['A','B','F(A,B)'], data=[[0,0,0],[0,1,1],[1,0,1],[1,1,0]]) tt                                                   A       B       F(A,B)                       0       0       0       0                 1       0       1       1                 2       1       0       1                 3       1       1       0                       Diagramas lógicos           import SchemDraw as schem import SchemDraw.logic as l import SchemDraw.elements as e  d = schem.Drawing(unit=.5) S = d.add(l.XOR2, rgtlabel='$S$') A = d.add(e.DOT, xy=S.in1) d.add(e.LINE, d='left', l=d.unit*2, lftlabel='$A$') d.add(e.LINE, d='left', xy=S.in2) B = d.add(e.DOT) d.add(e.LINE, d='left', lftlabel='$B$') d.add(e.LINE, d='down', xy=A.start, l=d.unit*3) C = d.add(l.AND2, d='right', anchor='in1', rgtlabel='$C$') d.add(e.LINE, d='down', xy=B.start, toy=C.in2) d.add(e.LINE, to=C.in2) d.draw()                                       Minitérminos, maxitérminos y pitérminos   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/algebra/30_funciones_logicas.html",
+        "teaser":null},{
+        "title": "Expansiones canónicas",
+        
+        "excerpt":
+            "Expansiones canónicas de funciones lógicas   Suma de minitérminos           from pyeda.inter import *  a, b, c, d = map(exprvar, \"abcd\") f0 = (~a &amp; b) | (c &amp; ~d) print(f0.expand([a,b,c,d]))                         Or(And(~a, b, ~c, ~d), And(~a, ~b, c, ~d), And(a, ~b, c, ~d), And(~a, b, c, ~d), And(a, b, c, ~d), And(~a, b, ~c, d), And(~a, b, c, d))                  Producto de maxitérminos   Suma exclusiva de pitérminos   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/algebra/40_expansiones_canonicas.html",
+        "teaser":null},{
+        "title": "Minimización de funciones lógicas",
+        
+        "excerpt":
+            "Minimización de funciones lógicas   Mapas de Karnaugh   Quine-McCluskey           from quine_mccluskey.qm import QuineMcCluskey                     solver = QuineMcCluskey(use_xor=False)                     fa_si = {'output':'si', 'inputs':['ai','bi','ci'], 'minterms':[1,2,4,7]} fa_co = {'output':'co', 'inputs':['ai','bi','ci'], 'minterms':[3,5,6,7]} fa_si['solution'] = list(solver.simplify(fa_si['minterms'], num_bits=len(fa_si['inputs']))) fa_co['solution'] = list(solver.simplify(fa_co['minterms'], num_bits=len(fa_si['inputs'])))                     def display_term(term, variables):     var = {'0': [v+\"'\" for v in variables], '1':variables}     tt = [var[pos][ind] for ind,pos in enumerate(term) if pos != '-']     return '*'.join(tt)      def display_function(f):     print(f['output'],' = ', display_term(f['solution'][0],f['inputs']), end='')     for term in f['solution'][1:]:         print(' + ', display_term(term,f['inputs']), end='')     print()                             display_function(fa_si) display_function(fa_co)                         si  =  ai'*bi'*ci +  ai'*bi*ci' +  ai*bi'*ci' +  ai*bi*ci co  =  ai*ci +  ai*bi +  bi*ci                  Espresso   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/algebra/50_minimizacion.html",
+        "teaser":null},{
+        "title": "Aritmética digital",
+        
+        "excerpt":
+            "ARITMÉTICA DIGITAL   (intro al capítulo)   Índice del capítulo      Sistemas numéricos posicionales   Números enteros   Aritmética en complemento a dos con signo   Códigos diversos   Números reales en punto fijo   Números reales en punto flotante   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/00_aritmetica_indice.html",
+        "teaser":null},{
+        "title": "Sistemas numéricos",
+        
+        "excerpt":
+            "Sistemas numéricos posicionales El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, no es sino uno (muy práctico y conveniente) de entre infinitos sistemas numéricos posicionales. Todos ellos sirven para expresar cantidades. En esta sección formalizaremos la idea de estos sistemas, y la especializaremos a casos prácticos que son relevantes para la lógica digital. Definición Un sistema numérico posicional de base $B \\in \\mathbb{Z}^+$ consiste en un conjunto $C_B: {C_0,\\ldots,C_{B-1}}$ de $B$ cifras o símbolos con valor intrínseco y único, que se utilizan concatenadas para representar una cantidad $x$ en base $B$: según...",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/10_sistemas_numericos.html",
+        "teaser":null},{
+        "title": "Números enteros",
+        
+        "excerpt":
+            "Números enteros   Enteros positivos   Enteros negativos   Complemento a dos   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/20_complemento_dos.html",
+        "teaser":null},{
+        "title": "Aritmética en complemento a dos con signo",
+        
+        "excerpt":
+            "Aritmética en complemento a dos con signo   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/30_operaciones_complemento.html",
+        "teaser":null},{
+        "title": "Códigos binarios y sus aplicaciones",
+        
+        "excerpt":
+            "Códigos digitales   Decimal Codificado en Binario (BCD)   Códigos de “siete segmentos”   Gray   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/40_codigos.html",
+        "teaser":null},{
+        "title": "Números reales en punto fijo",
+        
+        "excerpt":
+            "Números reales en punto fijo   Capacidad y precisión   Notación Q   Conversiones y escalamiento   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/50_punto_fijo.html",
+        "teaser":null},{
+        "title": "Números reales en punto flotante",
+        
+        "excerpt":
+            "Números reales en punto flotante   Capacidad y precisión   Formato IEEE   Conversiones y escalamiento   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/aritmetica/60_punto_flotante.html",
+        "teaser":null},{
+        "title": "Autómatas de estados finitos",
+        
+        "excerpt":
+            "AUTÓMATAS DE ESTADOS FINITOS   (intro del capítulo)   Índice del capítulo      Sistemas discretos   Estado de un sistema discreto   Diagramas de transición de estado   Máquina de estado algorítmica   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/automatas/00_automatas_indice.html",
+        "teaser":null},{
+        "title": "Sistemas discretos",
+        
+        "excerpt":
+            "Sistemas discretos   Autómata   Tiempo discreto   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/automatas/10_sistemas_discretos.html",
+        "teaser":null},{
+        "title": "Estado de un sistema discreto",
+        
+        "excerpt":
+            "Estado de un sistema discreto   Estados   Transiciones   Diagramas de tiempo           import wavedrom svg = wavedrom.render(\"\"\"{ \"signal\": [ { \"name\": \"CK\",   \"wave\": \"P.......\",                                              \"period\": 2  }, { \"name\": \"CMD\",  \"wave\": \"x.3x=x4x=x=x=x=x\", \"data\": \"RAS NOP CAS NOP NOP NOP NOP\", \"phase\": 0.5 }, { \"name\": \"ADDR\", \"wave\": \"x.=x..=x........\", \"data\": \"ROW COL\",                     \"phase\": 0.5 }, { \"name\": \"DQS\",  \"wave\": \"z.......0.1010z.\" }, { \"name\": \"DQ\",   \"wave\": \"z.........5555z.\", \"data\": \"D0 D1 D2 D3\" }]}\"\"\") svg.saveas(\"demo1.png\")                        svg = wavedrom.render(\"\"\"{ \"signal\": [ {\"name\": \"dat\", \"wave\": \"x.345x|=.x\", \"data\": [\"head\", \"body\", \"tail\", \"data\"]}, {\"name\": \"req\", \"wave\": \"0.1..0|1.0\"}, {}, {\"name\": \"ack\", \"wave\": \"1.....|01.\"}]}\"\"\") svg.saveas(\"demo2.svg\")                ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/automatas/20_estado_transiciones.html",
+        "teaser":null},{
+        "title": "Diagramas de transición de estado",
+        
+        "excerpt":
+            "Diagramas de transición de estado           import networkx as nx from nxpd import draw G = nx.cycle_graph(4, create_using=nx.DiGraph()) G.graph['rankdir'] = 'LR' draw(G, show='ipynb')                                               from transitions.extensions import GraphMachine  states = ['first', 'second', 'last'] transitions = [     {'trigger': 'move', 'source': 'first', 'dest': 'second'},     {'trigger': 'go', 'source': 'second', 'dest': 'last'},     {'trigger': 'end', 'source': 'last', 'dest': 'first'},     {'trigger': 'nope', 'source': 'first', 'dest': 'first'}, ]                     class Basic(object): pass  machine = GraphMachine(model=Basic,                        states=states,                        transitions=transitions,                        initial='first',                        auto_transitions=False,                        show_conditions=True,                        title='Bla'                        ) machine.get_graph().draw('./fsm.png', prog='dot')                ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/automatas/30_dte.html",
+        "teaser":null},{
+        "title": "Máquina de estado algorítmica",
+        
+        "excerpt":
+            "Máquina de estado algorítmica   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/matematicas/automatas/40_asm.html",
+        "teaser":null},{
+        "title": "Lógica reconfigurable",
+        
+        "excerpt":
+            "LÓGICA RECONFIGURABLE   (intro al capítulo)   Índice del capítulo      Arquitecturas de lógica reconfigurable   Flujos de diseño   Lenguajes de descripción de hardware   Traducción de tablas de verdad a HDL   Traducción de diagramas de transición a HDL   Traducción de máquinas de estado algorítmicas a HDL   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/00_reconfig_indice.html",
+        "teaser":null},{
+        "title": "Arquitecturas",
+        
+        "excerpt":
+            "Arquitecturas de lógica reconfigurable   Redes de dos niveles como implementación de expansiones canónicas   Dispositivos lógicos reconfigurables complejos (CPLD)   “Arreglos de compuertas” reconfigurables (FPGA)   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/10_arquitecturas_reconfigurables.html",
+        "teaser":null},{
+        "title": "Flujo de diseño",
+        
+        "excerpt":
+            "Flujo de diseño en lógica reconfigurable   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/20_flujo_diseno.html",
+        "teaser":null},{
+        "title": "Lenguajes de descripción de hardware",
+        
+        "excerpt":
+            "Lenguajes de descripción de hardware   VHDL para síntesis digital   Verilog   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/30_hdls.html",
+        "teaser":null},{
+        "title": "Traducción de tablas de verdad",
+        
+        "excerpt":
+            "Traducción de TT a HDL   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/40_tablas_verdad_hdl.html",
+        "teaser":null},{
+        "title": "Traducción de diagramas de transición",
+        
+        "excerpt":
+            "Traducción de STD a HDL   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/50_std_hdl.html",
+        "teaser":null},{
+        "title": "Traducción de máquinas de estado algorítmicas",
+        
+        "excerpt":
+            "Traducción de ASM a HDL   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/reconfig/60_asm_hdl.html",
+        "teaser":null},]
 </script>
               <nav class="c-page__nav">
   
