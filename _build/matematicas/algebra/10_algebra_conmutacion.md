@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Algebra de conmutación'
 prev_page:
-  url: /matematicas/algebra/00_algebra_indice
+  url: /matematicas/algebra/00_algebra_indice.html
   title: 'Álgebra de conmutación'
 next_page:
-  url: /matematicas/algebra/20_conjuntos_completos
+  url: /matematicas/algebra/20_conjuntos_completos.html
   title: 'Conjuntos completos de operadores lógicos'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Definiciones, axiomas y teoremas**
 
 

@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Números reales en punto flotante'
 prev_page:
-  url: /matematicas/aritmetica/50_punto_fijo
+  url: /matematicas/aritmetica/50_punto_fijo.html
   title: 'Números reales en punto fijo'
 next_page:
-  url: /electronica/conmutacion/00_electronica_indice
+  url: /electronica/conmutacion/00_electronica_indice.html
   title: 'Electrónica de conmutación'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Números reales en punto flotante**
 
 

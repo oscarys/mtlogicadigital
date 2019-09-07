@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Unidad lógica-aritmética'
 prev_page:
-  url: /aplicaciones/30_filtro_fir
+  url: /aplicaciones/30_filtro_fir.html
   title: 'Filtro digital FIR'
 next_page:
-  url: /aplicaciones/50_mac
+  url: /aplicaciones/50_mac.html
   title: 'Multiplicador-acumulador'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Unidad lógica-aritmética (ALU)**
 

@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Conjuntos completos de operadores lógicos'
 prev_page:
-  url: /matematicas/algebra/10_algebra_conmutacion
+  url: /matematicas/algebra/10_algebra_conmutacion.html
   title: 'Algebra de conmutación'
 next_page:
-  url: /matematicas/algebra/30_funciones_logicas
+  url: /matematicas/algebra/30_funciones_logicas.html
   title: 'Funciones lógicas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Conjuntos completos de operadores lógicos**
 
 

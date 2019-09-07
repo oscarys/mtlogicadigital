@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Traducción de máquinas de estado algorítmicas'
 prev_page:
-  url: /reconfig/50_std_hdl
+  url: /reconfig/50_std_hdl.html
   title: 'Traducción de diagramas de transición'
 next_page:
-  url: /aplicaciones/00_aplicaciones_indice
+  url: /aplicaciones/00_aplicaciones_indice.html
   title: 'Aplicaciones diversas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Traducción de ASM a HDL**
 

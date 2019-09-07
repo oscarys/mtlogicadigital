@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Par complementario de transistores MOS'
 prev_page:
-  url: /electronica/cmos/00_cmos_indice
+  url: /electronica/cmos/00_cmos_indice.html
   title: 'Tecnología CMOS'
 next_page:
-  url: /electronica/cmos/20_circuitos_dos_niveles
+  url: /electronica/cmos/20_circuitos_dos_niveles.html
   title: 'Circuitos de dos niveles'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Par complementario de transistores MOS**
 
 

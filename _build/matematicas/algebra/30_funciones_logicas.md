@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Funciones lógicas'
 prev_page:
-  url: /matematicas/algebra/20_conjuntos_completos
+  url: /matematicas/algebra/20_conjuntos_completos.html
   title: 'Conjuntos completos de operadores lógicos'
 next_page:
-  url: /matematicas/algebra/40_expansiones_canonicas
+  url: /matematicas/algebra/40_expansiones_canonicas.html
   title: 'Expansiones canónicas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Funciones lógicas**
 
 

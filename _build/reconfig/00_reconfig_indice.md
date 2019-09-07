@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Lógica reconfigurable'
 prev_page:
-  url: /electronica/cmos/30_muxes_decoders_memorias
+  url: /electronica/cmos/30_muxes_decoders_memorias.html
   title: 'Multiplexores, decodificadores y memorias'
 next_page:
-  url: /reconfig/10_arquitecturas_reconfigurables
+  url: /reconfig/10_arquitecturas_reconfigurables.html
   title: 'Arquitecturas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **LÓGICA RECONFIGURABLE**
 
 

@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Estado de un sistema discreto'
 prev_page:
-  url: /matematicas/automatas/10_sistemas_discretos
+  url: /matematicas/automatas/10_sistemas_discretos.html
   title: 'Sistemas discretos'
 next_page:
-  url: /matematicas/automatas/30_dte
+  url: /matematicas/automatas/30_dte.html
   title: 'Diagramas de transición de estado'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Estado de un sistema discreto**
 
 

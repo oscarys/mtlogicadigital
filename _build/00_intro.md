@@ -9,12 +9,10 @@ prev_page:
   url: 
   title: ''
 next_page:
-  url: /matematicas/algebra/00_algebra_indice
+  url: /matematicas/algebra/00_algebra_indice.html
   title: 'Álgebra de conmutación'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 <img src="images/logo/portada_libro.png" alt="Logos UIA UAM-I"/>
 
 

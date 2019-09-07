@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Diagramas de transición de estado'
 prev_page:
-  url: /matematicas/automatas/20_estado_transiciones
+  url: /matematicas/automatas/20_estado_transiciones.html
   title: 'Estado de un sistema discreto'
 next_page:
-  url: /matematicas/automatas/40_asm
+  url: /matematicas/automatas/40_asm.html
   title: 'Máquina de estado algorítmica'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Diagramas de transición de estado**
 
 

@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Traducción de tablas de verdad'
 prev_page:
-  url: /reconfig/30_hdls
+  url: /reconfig/30_hdls.html
   title: 'Lenguajes de descripción de hardware'
 next_page:
-  url: /reconfig/50_std_hdl
+  url: /reconfig/50_std_hdl.html
   title: 'Traducción de diagramas de transición'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Traducción de TT a HDL**
 

@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Aplicaciones diversas'
 prev_page:
-  url: /reconfig/60_asm_hdl
+  url: /reconfig/60_asm_hdl.html
   title: 'Traducción de máquinas de estado algorítmicas'
 next_page:
-  url: /aplicaciones/10_convertidor_binario_bcd
+  url: /aplicaciones/10_convertidor_binario_bcd.html
   title: 'Convertidor binario a BCD'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **APLICACIONES**
 
 

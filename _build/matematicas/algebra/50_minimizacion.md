@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Minimización de funciones lógicas'
 prev_page:
-  url: /matematicas/algebra/40_expansiones_canonicas
+  url: /matematicas/algebra/40_expansiones_canonicas.html
   title: 'Expansiones canónicas'
 next_page:
-  url: /matematicas/automatas/00_automatas_indice
+  url: /matematicas/automatas/00_automatas_indice.html
   title: 'Autómatas de estados finitos'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Minimización de funciones lógicas**
 
 

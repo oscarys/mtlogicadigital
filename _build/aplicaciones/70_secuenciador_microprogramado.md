@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Secuenciador microprogramado'
 prev_page:
-  url: /aplicaciones/60_secuenciador_cableado
+  url: /aplicaciones/60_secuenciador_cableado.html
   title: 'Secuenciador cableado'
 next_page:
   url: 
   title: ''
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Secuenciador microprogramado**
 

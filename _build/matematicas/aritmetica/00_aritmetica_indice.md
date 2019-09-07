@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Aritmética digital'
 prev_page:
-  url: /matematicas/automatas/40_asm
+  url: /matematicas/automatas/40_asm.html
   title: 'Máquina de estado algorítmica'
 next_page:
-  url: /matematicas/aritmetica/10_sistemas_numericos
+  url: /matematicas/aritmetica/10_sistemas_numericos.html
   title: 'Sistemas numéricos'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **ARITMÉTICA DIGITAL**
 
 

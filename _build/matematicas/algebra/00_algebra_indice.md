@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Álgebra de conmutación'
 prev_page:
-  url: /00_intro
+  url: /00_intro.html
   title: 'Inicio'
 next_page:
-  url: /matematicas/algebra/10_algebra_conmutacion
+  url: /matematicas/algebra/10_algebra_conmutacion.html
   title: 'Algebra de conmutación'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **ÁLGEBRA DE CONMUTACIÓN**
 
 

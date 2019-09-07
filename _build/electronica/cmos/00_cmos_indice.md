@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Tecnología CMOS'
 prev_page:
-  url: /electronica/conmutacion/20_conmutacion_mos
+  url: /electronica/conmutacion/20_conmutacion_mos.html
   title: 'Transistores MOS en régimen de conmutación'
 next_page:
-  url: /electronica/cmos/10_par_cmos
+  url: /electronica/cmos/10_par_cmos.html
   title: 'Par complementario de transistores MOS'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **TECNOLOGÍA CMOS**
 
 

@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Comparador de magnitud'
 prev_page:
-  url: /aplicaciones/10_convertidor_binario_bcd
+  url: /aplicaciones/10_convertidor_binario_bcd.html
   title: 'Convertidor binario a BCD'
 next_page:
-  url: /aplicaciones/30_filtro_fir
+  url: /aplicaciones/30_filtro_fir.html
   title: 'Filtro digital FIR'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Comparador de magnitud**
 

@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Sistemas numéricos'
 prev_page:
-  url: /matematicas/aritmetica/00_aritmetica_indice
+  url: /matematicas/aritmetica/00_aritmetica_indice.html
   title: 'Aritmética digital'
 next_page:
-  url: /matematicas/aritmetica/20_complemento_dos
+  url: /matematicas/aritmetica/20_complemento_dos.html
   title: 'Números enteros'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Sistemas numéricos posicionales**
 
 

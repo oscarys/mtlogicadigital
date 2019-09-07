@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Máquina de estado algorítmica'
 prev_page:
-  url: /matematicas/automatas/30_dte
+  url: /matematicas/automatas/30_dte.html
   title: 'Diagramas de transición de estado'
 next_page:
-  url: /matematicas/aritmetica/00_aritmetica_indice
+  url: /matematicas/aritmetica/00_aritmetica_indice.html
   title: 'Aritmética digital'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Máquina de estado algorítmica**
 

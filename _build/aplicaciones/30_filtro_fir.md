@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Filtro digital FIR'
 prev_page:
-  url: /aplicaciones/20_comparador_magnitud
+  url: /aplicaciones/20_comparador_magnitud.html
   title: 'Comparador de magnitud'
 next_page:
-  url: /aplicaciones/40_alu
+  url: /aplicaciones/40_alu.html
   title: 'Unidad lógica-aritmética'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Filtro digital FIR**
 
 

@@ -6,14 +6,12 @@ kernel_name: python3
 has_widgets: false
 title: 'Traducción de diagramas de transición'
 prev_page:
-  url: /reconfig/40_tablas_verdad_hdl
+  url: /reconfig/40_tablas_verdad_hdl.html
   title: 'Traducción de tablas de verdad'
 next_page:
-  url: /reconfig/60_asm_hdl
+  url: /reconfig/60_asm_hdl.html
   title: 'Traducción de máquinas de estado algorítmicas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Traducción de STD a HDL**
 

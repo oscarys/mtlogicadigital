@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Autómatas de estados finitos'
 prev_page:
-  url: /matematicas/algebra/50_minimizacion
+  url: /matematicas/algebra/50_minimizacion.html
   title: 'Minimización de funciones lógicas'
 next_page:
-  url: /matematicas/automatas/10_sistemas_discretos
+  url: /matematicas/automatas/10_sistemas_discretos.html
   title: 'Sistemas discretos'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **AUTÓMATAS DE ESTADOS FINITOS**
 
 

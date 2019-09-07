@@ -6,15 +6,13 @@ kernel_name: python3
 has_widgets: false
 title: 'Expansiones canónicas'
 prev_page:
-  url: /matematicas/algebra/30_funciones_logicas
+  url: /matematicas/algebra/30_funciones_logicas.html
   title: 'Funciones lógicas'
 next_page:
-  url: /matematicas/algebra/50_minimizacion
+  url: /matematicas/algebra/50_minimizacion.html
   title: 'Minimización de funciones lógicas'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # **Expansiones canónicas de funciones lógicas**
 
 
