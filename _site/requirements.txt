@@ -7,4 +7,6 @@ folium
 matplotlib
 nbinteract
 scipy
+ipywidgets
+pyeda
 jupyter-book

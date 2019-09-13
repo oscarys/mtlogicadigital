@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Sistemas numéricos</title>
-  <meta name="description" content="Sistemas numéricos posicionales">
+  <meta name="description" content="Sistemas num&#233;ricos posicionales El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, no es sino ...">
 
   <link rel="canonical" href="http://0.0.0.0:4000//matematicas/aritmetica/10_sistemas_numericos.html">
   <link rel="alternate" type="application/rss+xml" title="Lógica Digital" href="http://0.0.0.0:4000//feed.xml">
@@ -26,24 +26,21 @@
   <meta property="og:url"         content="http://0.0.0.0:4000//matematicas/aritmetica/10_sistemas_numericos.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Sistemas numéricos" />
-<meta property="og:description" content="Sistemas numéricos posicionales" />
-<meta property="og:image"       content="" />
+<meta property="og:description" content="Sistemas num&#233;ricos posicionales El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, no es sino ..." />
+<meta property="og:image"       content="http://0.0.0.0:4000/content/images/logo/logo_libro.png" />
+
+<meta name="twitter:card" content="summary">
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage":
-    "http://0.0.0.0:4000//matematicas/aritmetica/10_sistemas_numericos.html",
-  "headline":
-    "Sistemas numéricos",
-  "datePublished":
-    "2019-09-06T22:03:18-05:00",
-  "dateModified":
-    "2019-09-06T22:03:18-05:00",
-  "description":
-    "Sistemas numéricos posicionales",
+  "mainEntityOfPage": "http://0.0.0.0:4000//matematicas/aritmetica/10_sistemas_numericos.html",
+  "headline": "Sistemas numéricos",
+  "datePublished": "2019-09-13T00:39:47-05:00",
+  "dateModified": "2019-09-13T00:39:47-05:00",
+  "description": "Sistemas num&#233;ricos posicionales El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, no es sino ...",
   "author": {
     "@type": "Person",
     "name": "Oscar Yáñez Suárez"
@@ -69,15 +66,6 @@
   </script>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -90,6 +78,8 @@
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -98,14 +88,16 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    CommonHTML: {
-        linebreaks: {
-            automatic: true,
-        },
-    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
 
   <!-- DOM updating function -->
   <script>
@@ -134,22 +126,98 @@ initFunction = function(myfunc) {
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
   <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
 
-initFunction(function () {
-    anchors.add("main h1, main h2, main h3, main h4")
-});
-
+initFunction(initAnchors);
 </script>
+
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/assets/js/turbolinks.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
 
   <!-- Load nbinteract for widgets -->
   
+<!-- Include nbinteract for interactive widgets -->
+<script src="https://unpkg.com/nbinteract-core" async></script>
+
+<script>
+let interact
+
+const initializeNbinteract = () => {
+  // If NbInteract hasn't loaded, wait one second and try again
+  if (window.NbInteract === undefined) {
+    setTimeout(initializeNbinteract, 1000)
+    return
+  }
+
+  if (interact === undefined) {
+    console.log('Initializing nbinteract...')
+    interact = new window.NbInteract({
+      baseUrl: 'https://mybinder.org',
+      spec: 'oscarys/mtlogicadigital/master',
+      provider: 'gh',
+    })
+    window.interact = interact
+  } else {
+    console.log("nbinteract already initialized...")
+  }
+
+  interact.prepare()
+}
+
+// Initialize nbinteract
+initFunction(initializeNbinteract);
+</script>
+
 
   <!-- Load Thebelab for interactive widgets -->
   <!-- Include Thebelab for interactive code if it's enabled -->
@@ -169,7 +237,7 @@ const thebelabCellButton = id =>
 
 const addThebelabButtonToCodeCells =  () => {
 
-  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
@@ -188,18 +256,18 @@ initFunction(addThebelabButtonToCodeCells);
     {
       requestKernel: true,
       binderOptions: {
-        repo: 'YOUR-ORG/YOUR-REPO',
-        ref: 'gh-pages',
+        repo: 'oscarys/mtlogicadigital',
+        ref: 'master',
       },
       codeMirrorConfig: {
-        theme: "abcdef"
+        theme: "material"
       },
       kernelOptions: {
         name: 'python3',
       }
     }
 </script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
@@ -285,9 +353,22 @@ initFunction(addThebelabButtonToCodeCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
-  <script>
-var initToc = function () {
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
   tocbot.init({
     tocSelector: 'nav.onthispage',
     contentSelector: '.c-textbook__content',
@@ -298,163 +379,17 @@ var initToc = function () {
     activeListItemClass: "",  // Not using
     activeLinkClass: "", // Not using
   });
-  tocbot.refresh();
+
 }
 initFunction(initToc);
 </script>
+
 
   <!-- Google analytics -->
   <script src="/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
-
-  <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const codeCellId = index => `codecell${index}`
-
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
-
-  <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.hidecode input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        document.querySelectorAll('div.input_area').forEach(function (item, index) {
-            if (!item.classList.contains("hidecode")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = codeCellId(index)
-            item.setAttribute('id', id);
-            // Insert the button just inside the end of the next div
-            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.hidecode input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
   <script src="/assets/js/scripts.js" async></script>
@@ -465,9 +400,150 @@ initFunction(addCopyButtonToCodeCells);
 
   <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -553,6 +629,182 @@ initFunction(addCopyButtonToCodeCells);
 
 initFunction(initQuery);
 </script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
 </head>
 
   <body>
@@ -590,8 +842,25 @@ initFunction(initQuery);
     
       
       
-        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">Buscar</a></li>
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href=".html"
+        >
+          
+          Buscar
+        </a>
+
         
+      </li>
+
+      
+    
       
       
         <li class="c-sidebar__divider"></li>
@@ -1413,144 +1682,252 @@ initFunction(initQuery);
 </nav>
 
       
-      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-      <aside class="sidebar__right">
-          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
-          <nav class="onthispage">
-          </nav>
-      </aside>
-      
-      <main class="c-textbook__page" tabindex="-1">
-          <div class="o-wrapper">
-            <div class="c-sidebar-toggle">
+      <div class="c-topbar" id="top-navbar">
   <!-- We show the sidebar by default so we use .is-active -->
-  <button
-    id="js-sidebar-toggle"
-    class="hamburger hamburger--arrowalt is-active"
-  >
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
-  </button>
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        <a href="/content/matematicas/aritmetica/10_sistemas_numericos.ipynb" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
 </div>
 
-            
-<div class="buttons">
-<a href="/content/matematicas/aritmetica/10_sistemas_numericos.ipynb" download>
-<button id="interact-button-download" class="interact-button">Descarga este notebook</button>
-</a>
+  <button id="interact-button-thebelab" class="interact-button">Activa celdas</button>
 
-<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+  <button id="interact-button-show-widgets" class="interact-button js-nbinteract-widget">Show Widgets</button>
+
+  
 
 
 
+
+
+
+<a href="https://mybinder.org/v2/gh/oscarys/mtlogicadigital/master?filepath=content%2Fmatematicas%2Faritmetica%2F10_sistemas_numericos.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />Binder</button></a>
+  
 
 
 </div>
 
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
 
-            <div class="c-textbook__content">
-              <h1 id="sistemas-numéricos-posicionales"><strong>Sistemas numéricos posicionales</strong></h1>
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Sistemas-num&#233;ricos-posicionales"><strong>Sistemas num&#233;ricos posicionales</strong><a class="anchor-link" href="#Sistemas-num&#233;ricos-posicionales"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, 
 no es sino uno (muy práctico y conveniente) de entre infinitos <strong>sistemas numéricos posicionales</strong>. Todos ellos sirven para expresar cantidades. En esta sección formalizaremos la idea de estos sistemas, y la especializaremos a casos prácticos que son relevantes para la lógica digital.</p>
 
-<h2 id="definición">Definición</h2>
-
-<p>Un sistema numérico posicional de <strong>base</strong> $B \in \mathbb{Z}^+$ consiste en un conjunto $C_B: {C_0,\ldots,C_{B-1}}$ de $B$ <strong>cifras</strong> o símbolos con valor intrínseco y único, que se utilizan concatenadas para representar una cantidad $x$ <em>en base $B$</em>:</p>
-
-<script type="math/tex; mode=display">x_B = (c_{n-1}c_n \ldots c_1c_0)_B, \, c_i \in C_B</script>
-
-<p>según la siguiente regla:</p>
-
-<script type="math/tex; mode=display">x_B = (c_{n-1}c_n \ldots c_1c_0)_B = \sum_{i=0}^{n-1}B^ic_i</script>
-
-<p>El caso al que estamos habituados es el de $B=10$, el sistema <strong>decimal</strong>. La base del sistema es 10, y las cifras son $C_{10}:{0,1,2,3,4,5,6,7,8,9}$, con el valor intrínseco que asociamos a cada una de esas cifras. Así, por ejemplo, si $x_{10}=(3146)_{10}$, sabemos que $x$ vale 3146 porque:</p>
-
-<script type="math/tex; mode=display">3146_{10} = (3146)_{10} = \sum_{i=0}^{3}{10}^ic_i = {10}^0 \cdot 6 + {10}^1 \cdot 4 + {10}^2 \cdot 1 + {10}^3 \cdot 3 = 6 + 40 + 100 + 3000</script>
-
-<p>Como el sistema decimal es nuestro sistema de uso habitual, para simplificarnos la escritura de cantidades solemos dejar sin indicar la base, es decir que asumimos que $x = x_{10}$.</p>
-
-<p>¿Cuánto vale el número $(10110101)_2$? Primero que nada, reconocemos que la base es $B=2$ y decimos que $C_2:{0,1}$, con los valores intrínsecos a la vista. Con esta información sabemos que:</p>
-
-<script type="math/tex; mode=display">(10110101)_2 = 2^0 \cdot 1 + 2^1 \cdot 0 + 2^2 \cdot 1 +2^3 \cdot 0 + 2^4 \cdot 1 + 2^5 \cdot 1 + 2^6 \cdot 0 + 2^7 \cdot 1 = 1+4+16+32+128=181</script>
-
-<p>Un ejemplo divertido es</p>
-
-<script type="math/tex; mode=display">(31)_8 = 8^0 \cdot 1 + 8^1 \cdot 3 = 1 + 24 = 25 = (25)_{10}</script>
-
-<p>Si a la base $ B=8 $ la llamamos <strong>octal</strong> (abreviada OCT) y abreviamos la base decimal con DEC, el resultado anterior dice que 31 OCT es 25 DEC, ¿la Navidad y Halloween coinciden? (broma nerd).</p>
-
-<p>&lt;img src=”./broma_binaria.jpg” alt=”chiste de sistemas numéricos” align=”center” width=300&gt;</p>
-
-<p>Otros ejemplos:</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align} 
-(909)_{16} &= {16}^0 \cdot 9 + {16}^1 \cdot 0 + {16}^2 \cdot 9 = 2313 \\ 
-(231)_{5} &=  5^0 \cdot 1 + 5^1 \cdot 3 + 5^2 \cdot 2 = 66\\
-(666)_{20} &= {20}^0 \cdot 6 + {20}^1 \cdot 6 + {20}^2 \cdot 6 = 2526\end{align} %]]></script>
-
-<p>Salta aquí una pregunta ¿cuáles son las 16 cifras de la base $B=16$ (hexadecimal), o las 20 cifras de la base $B=20$ (vigesimal)? En los ejemplos usamos cifras de valor intrínseco a la vista, pero tendríamos que detenernos a considerar las demás cifras. En el caso hexadecimal, $C_{16}:{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F}$, con los valores intrínsecos faltantes siendo $A=10,B=11,C=12,D=13,E=14,F=15$. De modo que ¿cuánto vale la cantidad $(BEBE)_{16}$? Veamos:</p>
-
-<script type="math/tex; mode=display">(BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \cdot 11  = 48830</script>
-
-<div class="cell code_cell">
-  <div class="input_area hidecode">
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
-<span class="n">valor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">valor</span>
-<span class="n">base</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">base</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">val</span><span class="o">%</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">//</span><span class="mi">10</span>
-<span class="n">base</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">base</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">base</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Genera otro ejemplo automáticamente (falta resolver cómo)'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'({})_{} = {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span><span class="n">base</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">),</span><span class="n">base</span><span class="p">)))</span>
-
-</code></pre></div>    </div>
-  </div>
-
-  <div class="output_wrapper">
-    <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Genera otro ejemplo automáticamente (falta resolver cómo)
-(709)_12 = 1017
-</code></pre></div>      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </div>
 
-<h2 id="conversión-de-base">Conversión de base</h2>
+<div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Definici&#243;n">Definici&#243;n<a class="anchor-link" href="#Definici&#243;n"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Un sistema numérico posicional de <strong>base</strong> $B \in \mathbb{Z}^+$ consiste en un conjunto $C_B: \{C_0,\ldots,C_{B-1}\}$ de $B$ <strong>cifras</strong> o símbolos con valor $C_i = i$, que se utilizan concatenadas para representar una cantidad $x$ <em>en base $B$</em>:</p>
+$$x_B = (c_{n-1}c_n \ldots c_1c_0)_B, \, c_i \in C_B$$<p>según la siguiente regla:</p>
+$$x_B = (c_{n-1}c_n \ldots c_1c_0)_B = \sum_{i=0}^{n-1}B^ic_i$$<p>El caso al que estamos habituados es el de $B=10$, el sistema <strong>decimal</strong>. La base del sistema es 10, y las cifras son $C_{10}:\{0,1,2,3,4,5,6,7,8,9\}$, con el valor que siempre asociamos a cada una de esas cifras. Así, por ejemplo, si $x_{10}=(3146)_{10}$, sabemos que $x$ vale 3146 porque:</p>
+$$3146_{10} = (3146)_{10} = \sum_{i=0}^{3}{10}^ic_i = {10}^0 \cdot 6 + {10}^1 \cdot 4 + {10}^2 \cdot 1 + {10}^3 \cdot 3 = 6 + 40 + 100 + 3000$$<p></p>
+<p>Como el sistema decimal es nuestro sistema de uso habitual, para simplificarnos la escritura de cantidades solemos dejar sin indicar la base, es decir que asumimos que $x = x_{10}$.</p>
+<p>¿Cuánto vale el número $(10110101)_2$? Primero que nada, reconocemos que la base es $B=2$ y decimos que $C_2:\{0,1\}$, con los valores $0$ y $1$, respectivamente. Con esta información sabemos que:</p>
+$$(10110101)_2 = 2^0 \cdot 1 + 2^1 \cdot 0 + 2^2 \cdot 1 +2^3 \cdot 0 + 2^4 \cdot 1 + 2^5 \cdot 1 + 2^6 \cdot 0 + 2^7 \cdot 1 = 1+4+16+32+128=181$$<p>Un ejemplo divertido es</p>
+$$ (31)_8 = 8^0 \cdot 1 + 8^1 \cdot 3 = 1 + 24 = 25 = (25)_{10} $$<p></p>
+<p>Si a la base $ B=8 $ la llamamos <strong>octal</strong> (abreviada OCT) y abreviamos la base decimal con DEC, el resultado anterior dice que 31 OCT es 25 DEC, ¿la Navidad y Halloween coinciden? (broma nerd).</p>
+<p><img src="broma_binaria.jpg" alt="chiste de sistemas numéricos" align="center" width=300></p>
+<p>Otros ejemplos:</p>
+$$\begin{align} 
+(909)_{16} &amp;= {16}^0 \cdot 9 + {16}^1 \cdot 0 + {16}^2 \cdot 9 = 2313 \\ 
+(231)_{5} &amp;=  5^0 \cdot 1 + 5^1 \cdot 3 + 5^2 \cdot 2 = 66\\
+(666)_{20} &amp;= {20}^0 \cdot 6 + {20}^1 \cdot 6 + {20}^2 \cdot 6 = 2526\end{align}$$<p></p>
+<p>Salta aquí una pregunta ¿cuáles son las 16 cifras de la base $B=16$ (hexadecimal), o las 20 cifras de la base $B=20$ (vigesimal)? En los ejemplos usamos cifras cuyo valor "a la vista" reconocemos sin problema del $0$ al $9$, pero tendríamos que detenernos a considerar las demás cifras. En el caso hexadecimal, $C_{16}:\{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\}$, con los valores faltantes siendo $A=10,B=11,C=12,D=13,E=14,F=15$. De modo que ¿cuánto vale la cantidad $(BEBE)_{16}$? Veamos:</p>
+$$ (BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \cdot 11  = 48830$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input tag_interactive">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span>
+
+<span class="k">def</span> <span class="nf">ejemplo</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="n">valor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">valor</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">val</span><span class="o">%</span><span class="k">10</span>)
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">//</span><span class="mi">10</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">base</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">base</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">latexstr</span> <span class="o">=</span> <span class="s1">&#39;$(</span><span class="si">{0}</span><span class="s1">)_&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;{&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;} = &#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">),</span><span class="n">base</span><span class="p">))</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">append_display_data</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="n">latexstr</span><span class="p">))</span>
+    
+<span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Genera ejemplo:&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="c1"># &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;Da click para generar un nuevo ejemplo&#39;</span><span class="p">,</span>
+    <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">btn</span><span class="p">,</span><span class="n">out</span><span class="p">]));</span>
+<span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">ejemplo</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper output_widget_view  }}">
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="653acc34-60c4-4230-ad95-1a6b08c4cb5e"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#653acc34-60c4-4230-ad95-1a6b08c4cb5e');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3c2c9d17a9f24bdf8242ae2d7905698a", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conversi&#243;n-de-base">Conversi&#243;n de base<a class="anchor-link" href="#Conversi&#243;n-de-base"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>(pendiente)</p>
 
-<h2 id="bases-binaria-octal-y-hexadecimal">Bases binaria, octal y hexadecimal</h2>
+</div>
+</div>
+</div>
+</div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bases-binaria,-octal-y-hexadecimal">Bases binaria, octal y hexadecimal<a class="anchor-link" href="#Bases-binaria,-octal-y-hexadecimal"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>(pendiente)</p>
 
+</div>
+</div>
+</div>
+</div>
 
-              <nav class="c-page__nav">
+ 
+
+
+            </div>
+            <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/matematicas/aritmetica/00_aritmetica_indice">
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/matematicas/aritmetica/00_aritmetica_indice.html">
       〈 <span class="u-margin-right-tiny"></span> Aritmética digital
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/matematicas/aritmetica/20_complemento_dos">
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/matematicas/aritmetica/20_complemento_dos.html">
       Números enteros <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
 
-            </div>
-          </div>
+            <footer>
+  <p class="footer"></p>
+</footer>
+
         </div>
       </main>
     </div>
-
   </body>
 </html>

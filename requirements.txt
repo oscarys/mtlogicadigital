@@ -7,7 +7,6 @@ folium
 matplotlib
 nbinteract
 scipy
-random
 ipywidgets
 pyeda
 jupyter-book

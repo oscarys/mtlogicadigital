@@ -3,7 +3,7 @@ redirect_from:
   - "matematicas/aritmetica/10-sistemas-numericos"
 interact_link: content/matematicas/aritmetica/10_sistemas_numericos.ipynb
 kernel_name: python3
-has_widgets: false
+has_widgets: true
 title: |-
   Sistemas numéricos
 prev_page:
@@ -71,6 +71,74 @@ $$\begin{align}
 $$ (BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \cdot 11  = 48830$$
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input tag_interactive">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span>
+
+<span class="k">def</span> <span class="nf">ejemplo</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="n">valor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">valor</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">val</span><span class="o">%</span><span class="k">10</span>)
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">//</span><span class="mi">10</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">base</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">base</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">latexstr</span> <span class="o">=</span> <span class="s1">&#39;$(</span><span class="si">{0}</span><span class="s1">)_&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;{&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;} = &#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">),</span><span class="n">base</span><span class="p">))</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">append_display_data</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="n">latexstr</span><span class="p">))</span>
+    
+<span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Genera ejemplo:&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="c1"># &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;Da click para generar un nuevo ejemplo&#39;</span><span class="p">,</span>
+    <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">btn</span><span class="p">,</span><span class="n">out</span><span class="p">]));</span>
+<span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">ejemplo</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper output_widget_view  }}">
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="653acc34-60c4-4230-ad95-1a6b08c4cb5e"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#653acc34-60c4-4230-ad95-1a6b08c4cb5e');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3c2c9d17a9f24bdf8242ae2d7905698a", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 

@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Search the site</title>
-  <meta name="description" content="(confeccionado con jupyter-book).">
+  <meta name="description" content="        ">
 
   <link rel="canonical" href="http://0.0.0.0:4000//search">
   <link rel="alternate" type="application/rss+xml" title="Lógica Digital" href="http://0.0.0.0:4000//feed.xml">
@@ -26,24 +26,21 @@
   <meta property="og:url"         content="http://0.0.0.0:4000//search" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Search the site" />
-<meta property="og:description" content="(confeccionado con jupyter-book)." />
-<meta property="og:image"       content="" />
+<meta property="og:description" content="        " />
+<meta property="og:image"       content="http://0.0.0.0:4000/content/images/logo/logo_libro.png" />
+
+<meta name="twitter:card" content="summary">
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage":
-    "http://0.0.0.0:4000//search",
-  "headline":
-    "Search the site",
-  "datePublished":
-    "2019-09-06T22:03:18-05:00",
-  "dateModified":
-    "2019-09-06T22:03:18-05:00",
-  "description":
-    "(confeccionado con jupyter-book).",
+  "mainEntityOfPage": "http://0.0.0.0:4000//search",
+  "headline": "Search the site",
+  "datePublished": "2019-09-13T00:39:38-05:00",
+  "dateModified": "2019-09-13T00:39:38-05:00",
+  "description": "        ",
   "author": {
     "@type": "Person",
     "name": "Oscar Yáñez Suárez"
@@ -69,15 +66,6 @@
   </script>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -90,6 +78,8 @@
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -98,14 +88,16 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    CommonHTML: {
-        linebreaks: {
-            automatic: true,
-        },
-    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
 
   <!-- DOM updating function -->
   <script>
@@ -134,19 +126,63 @@ initFunction = function(myfunc) {
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
   <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
 
-initFunction(function () {
-    anchors.add("main h1, main h2, main h3, main h4")
-});
-
+initFunction(initAnchors);
 </script>
+
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/assets/js/turbolinks.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
 
   <!-- Load nbinteract for widgets -->
   
@@ -169,7 +205,7 @@ const thebelabCellButton = id =>
 
 const addThebelabButtonToCodeCells =  () => {
 
-  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
@@ -188,18 +224,18 @@ initFunction(addThebelabButtonToCodeCells);
     {
       requestKernel: true,
       binderOptions: {
-        repo: 'YOUR-ORG/YOUR-REPO',
-        ref: 'gh-pages',
+        repo: 'oscarys/mtlogicadigital',
+        ref: 'master',
       },
       codeMirrorConfig: {
-        theme: "abcdef"
+        theme: "material"
       },
       kernelOptions: {
         name: 'python3',
       }
     }
 </script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
@@ -285,9 +321,22 @@ initFunction(addThebelabButtonToCodeCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
-  <script>
-var initToc = function () {
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
   tocbot.init({
     tocSelector: 'nav.onthispage',
     contentSelector: '.c-textbook__content',
@@ -298,163 +347,17 @@ var initToc = function () {
     activeListItemClass: "",  // Not using
     activeLinkClass: "", // Not using
   });
-  tocbot.refresh();
+
 }
 initFunction(initToc);
 </script>
+
 
   <!-- Google analytics -->
   <script src="/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
-
-  <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const codeCellId = index => `codecell${index}`
-
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
-
-  <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.hidecode input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        document.querySelectorAll('div.input_area').forEach(function (item, index) {
-            if (!item.classList.contains("hidecode")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = codeCellId(index)
-            item.setAttribute('id', id);
-            // Insert the button just inside the end of the next div
-            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.hidecode input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
   <script src="/assets/js/scripts.js" async></script>
@@ -465,9 +368,150 @@ initFunction(addCopyButtonToCodeCells);
 
   <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -553,6 +597,182 @@ initFunction(addCopyButtonToCodeCells);
 
 initFunction(initQuery);
 </script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
 </head>
 
   <body>
@@ -590,8 +810,25 @@ initFunction(initQuery);
     
       
       
-        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">Buscar</a></li>
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href=".html"
+        >
+          
+          Buscar
+        </a>
+
         
+      </li>
+
+      
+    
       
       
         <li class="c-sidebar__divider"></li>
@@ -1413,24 +1650,40 @@ initFunction(initQuery);
 </nav>
 
       
-      <main class="c-textbook__page" tabindex="-1">
-          <div class="o-wrapper">
-            <div class="c-sidebar-toggle">
+      <div class="c-topbar" id="top-navbar">
   <!-- We show the sidebar by default so we use .is-active -->
-  <button
-    id="js-sidebar-toggle"
-    class="hamburger hamburger--arrowalt is-active"
-  >
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
-  </button>
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
 </div>
 
-            
+</div>
 
-            <div class="c-textbook__content">
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
               <div class="search-content__inner-wrap">
     <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
     <div id="results" class="results"></div>
@@ -1438,347 +1691,21 @@ initFunction(initQuery);
 
 <script>
     // Add the lunr store since we will now search it
-    var store = [{
-        "title": "Inicio",
-        
-        "excerpt":
-            "En este libro proponemos abordar el diseño de soluciones de lógica digital como problemas de matemáticas discretas aplicadas, separando claramente los fundamentos teóricos, las implementaciones electrónicas de las variables y funciones lógicas, y la formulación moderna de soluciones digitales en lógica reconfigurable. Algunas cosas que hacen diferente a este libro respecto a los cientos de libros de lógica digital existentes son: cada problema tiene una solución matemática formal la versión electrónica es interactiva, gracias al uso de Python y jupyter. Si te interersa ver el código de las demostraciones y ejercicios, da click en el símbolo “+” que verás a...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/00_intro.html",
-        "teaser":null},{
-        "title": "Aplicaciones diversas",
-        
-        "excerpt":
-            "APLICACIONES   (intro del capítulo)   Índice del capítulo      Convertidor de binario  a BCD   Comparador de magnitud   Filtro digital FIR   Unidad lógica-aritmética   Multiplicador-acumulador (MAC)   Secuenciador cableado   Secuenciador microprogramado   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/00_aplicaciones_indice.html",
-        "teaser":null},{
-        "title": "Convertidor binario a BCD",
-        
-        "excerpt":
-            "Convertidor binario-BCD   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/10_convertidor_binario_bcd.html",
-        "teaser":null},{
-        "title": "Comparador de magnitud",
-        
-        "excerpt":
-            "Comparador de magnitud   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/20_comparador_magnitud.html",
-        "teaser":null},{
-        "title": "Filtro digital FIR",
-        
-        "excerpt":
-            "Filtro digital FIR library ieee; use ieee.std_logic_1164.all; use ieee.numeric_std.all; use work.types.all; library maths; use maths.maths_class.all; library matrix; use matrix.matrix_class.all; entity FIR_32tap_8_8 is port ( a : in std_logic_vector(7 downto 0); b : in logic_8_vector(31 downto 0); clock : in std_logic; reset : in std_logic; y : out std_logic_vector(20 downto 0) ); end FIR_32tap_8_8; architecture behavioural of FIR_32tap_8_8 is constant number_of_taps: integer := 32; signal data_table: single_vector(number_of_taps-1 downto 0); signal coefficient_table: single_vector(number_of_taps-1 downto 0); begin -- y &lt;= sum_over (0, k-1, a((k-1)-i), b(i)) -- coefficient_table &lt;= b; fir_algorithm: process (clock) variable data_out : single; variable fir_result : single; variable data_table_var: single_vector(number_of_taps-1...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/30_filtro_fir.html",
-        "teaser":null},{
-        "title": "Unidad lógica-aritmética",
-        
-        "excerpt":
-            "Unidad lógica-aritmética (ALU)   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/40_alu.html",
-        "teaser":null},{
-        "title": "Multiplicador-acumulador",
-        
-        "excerpt":
-            "Multiplicador-acumulador (MAC)   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/50_mac.html",
-        "teaser":null},{
-        "title": "Secuenciador cableado",
-        
-        "excerpt":
-            "Secuenciador cableado   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/60_secuenciador_cableado.html",
-        "teaser":null},{
-        "title": "Secuenciador microprogramado",
-        
-        "excerpt":
-            "Secuenciador microprogramado   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/aplicaciones/70_secuenciador_microprogramado.html",
-        "teaser":null},{
-        "title": "Tecnología CMOS",
-        
-        "excerpt":
-            "TECNOLOGÍA CMOS   (intro al capítulo)   Índice del capítulo      Par complementario de transistores MOS   Circuitos de dos niveles   Multiplexores, decodificadores y memorias estáticas   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/cmos/00_cmos_indice.html",
-        "teaser":null},{
-        "title": "Par complementario de transistores MOS",
-        
-        "excerpt":
-            "Par complementario de transistores MOS   Inversor CMOS   Compuerta AND en CMOS   Compuerta OR en CMOS   Compuerta XOR en CMOS   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/cmos/10_par_cmos.html",
-        "teaser":null},{
-        "title": "Circuitos de dos niveles",
-        
-        "excerpt":
-            "Circuitos de dos niveles   Redes AND-OR   Redes OR-AND   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/cmos/20_circuitos_dos_niveles.html",
-        "teaser":null},{
-        "title": "Multiplexores, decodificadores y memorias",
-        
-        "excerpt":
-            "Multiplexores, decodificdores y memorias   Multiplexor / selector   Decodificador / demultiplexor   Memoria estática   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/cmos/30_muxes_decoders_memorias.html",
-        "teaser":null},{
-        "title": "Electrónica de conmutación",
-        
-        "excerpt":
-            "ELECTRÓNICA DE CONMUTACIÓN   (intro al capítulo)   Índice del capítulo      Transistor bipolar en régimen de conmutación   Transistor MOS en régimen de conmutación   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/conmutacion/00_electronica_indice.html",
-        "teaser":null},{
-        "title": "Transistores bipolares en régimen de conmutación",
-        
-        "excerpt":
-            "Transistores bipolares en conmutación   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/conmutacion/10_conmutacion_bjt.html",
-        "teaser":null},{
-        "title": "Transistores MOS en régimen de conmutación",
-        
-        "excerpt":
-            "Transistores MOS en conmutación   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/electronica/conmutacion/20_conmutacion_mos.html",
-        "teaser":null},{
-        "title": "Álgebra de conmutación",
-        
-        "excerpt":
-            "ÁLGEBRA DE CONMUTACIÓN   (intro al capítulo)   Índice del capítulo      Definiciones, axiomas y teoremas   Conjuntos completos de operadores lógicos   Funciones lógicas   Expansiones canónicas   Minimización de funciones lógicas   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/algebra/00_algebra_indice.html",
-        "teaser":null},{
-        "title": "Algebra de conmutación",
-        
-        "excerpt":
-            "Definiciones, axiomas y teoremas   (definiciones y axiomas)   Factorizaciones y distribuciones   Teorema de DeMorgan   Cobertura   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/algebra/10_algebra_conmutacion.html",
-        "teaser":null},{
-        "title": "Conjuntos completos de operadores lógicos",
-        
-        "excerpt":
-            "Conjuntos completos de operadores lógicos   AND-OR y NAND   OR-AND y NOR   XOR-AND   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/algebra/20_conjuntos_completos.html",
-        "teaser":null},{
-        "title": "Funciones lógicas",
-        
-        "excerpt":
-            "Funciones lógicas   Tablas de verdad           import pandas as pd  tt = pd.DataFrame(columns=['A','B','F(A,B)'], data=[[0,0,0],[0,1,1],[1,0,1],[1,1,0]]) tt                                                   A       B       F(A,B)                       0       0       0       0                 1       0       1       1                 2       1       0       1                 3       1       1       0                       Diagramas lógicos           import SchemDraw as schem import SchemDraw.logic as l import SchemDraw.elements as e  d = schem.Drawing(unit=.5) S = d.add(l.XOR2, rgtlabel='$S$') A = d.add(e.DOT, xy=S.in1) d.add(e.LINE, d='left', l=d.unit*2, lftlabel='$A$') d.add(e.LINE, d='left', xy=S.in2) B = d.add(e.DOT) d.add(e.LINE, d='left', lftlabel='$B$') d.add(e.LINE, d='down', xy=A.start, l=d.unit*3) C = d.add(l.AND2, d='right', anchor='in1', rgtlabel='$C$') d.add(e.LINE, d='down', xy=B.start, toy=C.in2) d.add(e.LINE, to=C.in2) d.draw()                                       Minitérminos, maxitérminos y pitérminos   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/algebra/30_funciones_logicas.html",
-        "teaser":null},{
-        "title": "Expansiones canónicas",
-        
-        "excerpt":
-            "Expansiones canónicas de funciones lógicas   Suma de minitérminos           from pyeda.inter import *  a, b, c, d = map(exprvar, \"abcd\") f0 = (~a &amp; b) | (c &amp; ~d) print(f0.expand([a,b,c,d]))                         Or(And(~a, b, ~c, ~d), And(~a, ~b, c, ~d), And(a, ~b, c, ~d), And(~a, b, c, ~d), And(a, b, c, ~d), And(~a, b, ~c, d), And(~a, b, c, d))                  Producto de maxitérminos   Suma exclusiva de pitérminos   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/algebra/40_expansiones_canonicas.html",
-        "teaser":null},{
-        "title": "Minimización de funciones lógicas",
-        
-        "excerpt":
-            "Minimización de funciones lógicas   Mapas de Karnaugh   Quine-McCluskey           from quine_mccluskey.qm import QuineMcCluskey                     solver = QuineMcCluskey(use_xor=False)                     fa_si = {'output':'si', 'inputs':['ai','bi','ci'], 'minterms':[1,2,4,7]} fa_co = {'output':'co', 'inputs':['ai','bi','ci'], 'minterms':[3,5,6,7]} fa_si['solution'] = list(solver.simplify(fa_si['minterms'], num_bits=len(fa_si['inputs']))) fa_co['solution'] = list(solver.simplify(fa_co['minterms'], num_bits=len(fa_si['inputs'])))                     def display_term(term, variables):     var = {'0': [v+\"'\" for v in variables], '1':variables}     tt = [var[pos][ind] for ind,pos in enumerate(term) if pos != '-']     return '*'.join(tt)      def display_function(f):     print(f['output'],' = ', display_term(f['solution'][0],f['inputs']), end='')     for term in f['solution'][1:]:         print(' + ', display_term(term,f['inputs']), end='')     print()                             display_function(fa_si) display_function(fa_co)                         si  =  ai'*bi'*ci +  ai'*bi*ci' +  ai*bi'*ci' +  ai*bi*ci co  =  ai*ci +  ai*bi +  bi*ci                  Espresso   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/algebra/50_minimizacion.html",
-        "teaser":null},{
-        "title": "Aritmética digital",
-        
-        "excerpt":
-            "ARITMÉTICA DIGITAL   (intro al capítulo)   Índice del capítulo      Sistemas numéricos posicionales   Números enteros   Aritmética en complemento a dos con signo   Códigos diversos   Números reales en punto fijo   Números reales en punto flotante   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/00_aritmetica_indice.html",
-        "teaser":null},{
-        "title": "Sistemas numéricos",
-        
-        "excerpt":
-            "Sistemas numéricos posicionales El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, no es sino uno (muy práctico y conveniente) de entre infinitos sistemas numéricos posicionales. Todos ellos sirven para expresar cantidades. En esta sección formalizaremos la idea de estos sistemas, y la especializaremos a casos prácticos que son relevantes para la lógica digital. Definición Un sistema numérico posicional de base $B \\in \\mathbb{Z}^+$ consiste en un conjunto $C_B: {C_0,\\ldots,C_{B-1}}$ de $B$ cifras o símbolos con valor intrínseco y único, que se utilizan concatenadas para representar una cantidad $x$ en base $B$: según...",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/10_sistemas_numericos.html",
-        "teaser":null},{
-        "title": "Números enteros",
-        
-        "excerpt":
-            "Números enteros   Enteros positivos   Enteros negativos   Complemento a dos   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/20_complemento_dos.html",
-        "teaser":null},{
-        "title": "Aritmética en complemento a dos con signo",
-        
-        "excerpt":
-            "Aritmética en complemento a dos con signo   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/30_operaciones_complemento.html",
-        "teaser":null},{
-        "title": "Códigos binarios y sus aplicaciones",
-        
-        "excerpt":
-            "Códigos digitales   Decimal Codificado en Binario (BCD)   Códigos de “siete segmentos”   Gray   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/40_codigos.html",
-        "teaser":null},{
-        "title": "Números reales en punto fijo",
-        
-        "excerpt":
-            "Números reales en punto fijo   Capacidad y precisión   Notación Q   Conversiones y escalamiento   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/50_punto_fijo.html",
-        "teaser":null},{
-        "title": "Números reales en punto flotante",
-        
-        "excerpt":
-            "Números reales en punto flotante   Capacidad y precisión   Formato IEEE   Conversiones y escalamiento   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/aritmetica/60_punto_flotante.html",
-        "teaser":null},{
-        "title": "Autómatas de estados finitos",
-        
-        "excerpt":
-            "AUTÓMATAS DE ESTADOS FINITOS   (intro del capítulo)   Índice del capítulo      Sistemas discretos   Estado de un sistema discreto   Diagramas de transición de estado   Máquina de estado algorítmica   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/automatas/00_automatas_indice.html",
-        "teaser":null},{
-        "title": "Sistemas discretos",
-        
-        "excerpt":
-            "Sistemas discretos   Autómata   Tiempo discreto   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/automatas/10_sistemas_discretos.html",
-        "teaser":null},{
-        "title": "Estado de un sistema discreto",
-        
-        "excerpt":
-            "Estado de un sistema discreto   Estados   Transiciones   Diagramas de tiempo           import wavedrom svg = wavedrom.render(\"\"\"{ \"signal\": [ { \"name\": \"CK\",   \"wave\": \"P.......\",                                              \"period\": 2  }, { \"name\": \"CMD\",  \"wave\": \"x.3x=x4x=x=x=x=x\", \"data\": \"RAS NOP CAS NOP NOP NOP NOP\", \"phase\": 0.5 }, { \"name\": \"ADDR\", \"wave\": \"x.=x..=x........\", \"data\": \"ROW COL\",                     \"phase\": 0.5 }, { \"name\": \"DQS\",  \"wave\": \"z.......0.1010z.\" }, { \"name\": \"DQ\",   \"wave\": \"z.........5555z.\", \"data\": \"D0 D1 D2 D3\" }]}\"\"\") svg.saveas(\"demo1.png\")                        svg = wavedrom.render(\"\"\"{ \"signal\": [ {\"name\": \"dat\", \"wave\": \"x.345x|=.x\", \"data\": [\"head\", \"body\", \"tail\", \"data\"]}, {\"name\": \"req\", \"wave\": \"0.1..0|1.0\"}, {}, {\"name\": \"ack\", \"wave\": \"1.....|01.\"}]}\"\"\") svg.saveas(\"demo2.svg\")                ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/automatas/20_estado_transiciones.html",
-        "teaser":null},{
-        "title": "Diagramas de transición de estado",
-        
-        "excerpt":
-            "Diagramas de transición de estado           import networkx as nx from nxpd import draw G = nx.cycle_graph(4, create_using=nx.DiGraph()) G.graph['rankdir'] = 'LR' draw(G, show='ipynb')                                               from transitions.extensions import GraphMachine  states = ['first', 'second', 'last'] transitions = [     {'trigger': 'move', 'source': 'first', 'dest': 'second'},     {'trigger': 'go', 'source': 'second', 'dest': 'last'},     {'trigger': 'end', 'source': 'last', 'dest': 'first'},     {'trigger': 'nope', 'source': 'first', 'dest': 'first'}, ]                     class Basic(object): pass  machine = GraphMachine(model=Basic,                        states=states,                        transitions=transitions,                        initial='first',                        auto_transitions=False,                        show_conditions=True,                        title='Bla'                        ) machine.get_graph().draw('./fsm.png', prog='dot')                ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/automatas/30_dte.html",
-        "teaser":null},{
-        "title": "Máquina de estado algorítmica",
-        
-        "excerpt":
-            "Máquina de estado algorítmica   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/matematicas/automatas/40_asm.html",
-        "teaser":null},{
-        "title": "Lógica reconfigurable",
-        
-        "excerpt":
-            "LÓGICA RECONFIGURABLE   (intro al capítulo)   Índice del capítulo      Arquitecturas de lógica reconfigurable   Flujos de diseño   Lenguajes de descripción de hardware   Traducción de tablas de verdad a HDL   Traducción de diagramas de transición a HDL   Traducción de máquinas de estado algorítmicas a HDL   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/00_reconfig_indice.html",
-        "teaser":null},{
-        "title": "Arquitecturas",
-        
-        "excerpt":
-            "Arquitecturas de lógica reconfigurable   Redes de dos niveles como implementación de expansiones canónicas   Dispositivos lógicos reconfigurables complejos (CPLD)   “Arreglos de compuertas” reconfigurables (FPGA)   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/10_arquitecturas_reconfigurables.html",
-        "teaser":null},{
-        "title": "Flujo de diseño",
-        
-        "excerpt":
-            "Flujo de diseño en lógica reconfigurable   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/20_flujo_diseno.html",
-        "teaser":null},{
-        "title": "Lenguajes de descripción de hardware",
-        
-        "excerpt":
-            "Lenguajes de descripción de hardware   VHDL para síntesis digital   Verilog   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/30_hdls.html",
-        "teaser":null},{
-        "title": "Traducción de tablas de verdad",
-        
-        "excerpt":
-            "Traducción de TT a HDL   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/40_tablas_verdad_hdl.html",
-        "teaser":null},{
-        "title": "Traducción de diagramas de transición",
-        
-        "excerpt":
-            "Traducción de STD a HDL   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/50_std_hdl.html",
-        "teaser":null},{
-        "title": "Traducción de máquinas de estado algorítmicas",
-        
-        "excerpt":
-            "Traducción de ASM a HDL   ",
-        "categories": [],
-        "tags": [],
-        "url": "http://0.0.0.0:4000/reconfig/60_asm_hdl.html",
-        "teaser":null},]
+    var store = []
 </script>
-              <nav class="c-page__nav">
+            </div>
+            <nav class="c-page__nav">
   
 
   
 </nav>
 
-            </div>
-          </div>
+            <footer>
+  <p class="footer"></p>
+</footer>
+
         </div>
       </main>
     </div>
-
   </body>
 </html>
