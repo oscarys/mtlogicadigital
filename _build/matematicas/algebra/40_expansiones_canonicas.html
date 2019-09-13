@@ -1,0 +1,96 @@
+---
+redirect_from:
+  - "matematicas/algebra/40-expansiones-canonicas"
+interact_link: content/matematicas/algebra/40_expansiones_canonicas.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Expansiones canónicas
+prev_page:
+  url: /matematicas/algebra/30_funciones_logicas.html
+  title: |-
+    Funciones lógicas
+next_page:
+  url: /matematicas/algebra/50_minimizacion.html
+  title: |-
+    Minimización de funciones lógicas
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Expansiones-can&#243;nicas-de-funciones-l&#243;gicas"><strong>Expansiones can&#243;nicas de funciones l&#243;gicas</strong><a class="anchor-link" href="#Expansiones-can&#243;nicas-de-funciones-l&#243;gicas"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Suma-de-minit&#233;rminos">Suma de minit&#233;rminos<a class="anchor-link" href="#Suma-de-minit&#233;rminos"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyeda.inter</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">exprvar</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">c</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f0</span><span class="o">.</span><span class="n">expand</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Or(And(~a, b, ~c, ~d), And(~a, ~b, c, ~d), And(a, ~b, c, ~d), And(~a, b, c, ~d), And(a, b, c, ~d), And(~a, b, ~c, d), And(~a, b, c, d))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Producto-de-maxit&#233;rminos">Producto de maxit&#233;rminos<a class="anchor-link" href="#Producto-de-maxit&#233;rminos"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Suma-exclusiva-de-pit&#233;rminos">Suma exclusiva de pit&#233;rminos<a class="anchor-link" href="#Suma-exclusiva-de-pit&#233;rminos"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+ 
+

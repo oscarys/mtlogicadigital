@@ -1,0 +1,115 @@
+---
+redirect_from:
+  - "aplicaciones/30-filtro-fir"
+interact_link: content/aplicaciones/30_filtro_fir.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Filtro digital FIR
+prev_page:
+  url: /aplicaciones/20_comparador_magnitud.html
+  title: |-
+    Comparador de magnitud
+next_page:
+  url: /aplicaciones/40_alu.html
+  title: |-
+    Unidad lógica-aritmética
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Filtro-digital-FIR"><strong>Filtro digital FIR</strong><a class="anchor-link" href="#Filtro-digital-FIR"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">library</span> <span class="nn">ieee</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nn">ieee.std_logic_1164.</span><span class="k">all</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nn">ieee.numeric_std.</span><span class="k">all</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">work.types.</span><span class="k">all</span><span class="p">;</span>
+
+<span class="k">library</span> <span class="nn">maths</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nn">maths.maths_class.</span><span class="k">all</span><span class="p">;</span>
+<span class="k">library</span> <span class="nn">matrix</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nn">matrix.matrix_class.</span><span class="k">all</span><span class="p">;</span>
+
+<span class="k">entity</span> <span class="nc">FIR_32tap_8_8</span> <span class="k">is</span>
+<span class="k">port</span> <span class="p">(</span>
+  <span class="n">a</span> <span class="o">:</span> <span class="k">in</span>  <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">b</span> <span class="o">:</span> <span class="k">in</span>  <span class="n">logic_8_vector</span><span class="p">(</span><span class="mi">31</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">clock</span> <span class="o">:</span> <span class="k">in</span>  <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="n">reset</span> <span class="o">:</span> <span class="k">in</span>  <span class="kt">std_logic</span><span class="p">;</span>
+  <span class="n">y</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">20</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="k">end</span> <span class="nc">FIR_32tap_8_8</span><span class="p">;</span>
+
+<span class="k">architecture</span> <span class="nc">behavioural</span> <span class="k">of</span> <span class="nc">FIR_32tap_8_8</span> <span class="k">is</span>
+
+  <span class="k">constant</span> <span class="n">number_of_taps</span><span class="o">:</span> <span class="kt">integer</span> <span class="o">:=</span> <span class="mi">32</span><span class="p">;</span>
+
+  <span class="k">signal</span> <span class="n">data_table</span><span class="o">:</span> <span class="n">single_vector</span><span class="p">(</span><span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">signal</span> <span class="n">coefficient_table</span><span class="o">:</span> <span class="n">single_vector</span><span class="p">(</span><span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="k">begin</span>
+
+  <span class="c1">-- y &lt;= sum_over (0, k-1, a((k-1)-i), b(i))</span>
+  <span class="c1">-- coefficient_table &lt;= b;</span>
+
+  <span class="nc">fir_algorithm</span><span class="o">:</span> <span class="k">process</span> <span class="p">(</span><span class="n">clock</span><span class="p">)</span>
+    <span class="k">variable</span> <span class="n">data_out</span> <span class="o">:</span> <span class="n">single</span><span class="p">;</span>
+    <span class="k">variable</span> <span class="n">fir_result</span> <span class="o">:</span> <span class="n">single</span><span class="p">;</span>
+    <span class="k">variable</span> <span class="n">data_table_var</span><span class="o">:</span> <span class="n">single_vector</span><span class="p">(</span><span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">-- the coeff table assignment really ought to be handled at the entity interface</span>
+    <span class="k">variable</span> <span class="n">coefficient_table_var</span><span class="o">:</span> <span class="n">single_vector</span><span class="p">(</span><span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">variable</span> <span class="n">tmp</span> <span class="o">:</span> <span class="n">single_vector</span><span class="p">(</span><span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">variable</span> <span class="n">tmp2</span> <span class="o">:</span> <span class="n">single</span><span class="p">;</span>
+    <span class="k">variable</span> <span class="n">tmp3</span> <span class="o">:</span> <span class="n">single_vector</span><span class="p">(</span><span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">variable</span> <span class="n">tmp4</span> <span class="o">:</span> <span class="kt">integer</span><span class="p">;</span>
+    <span class="k">variable</span> <span class="n">num_taps_minus_1</span> <span class="o">:</span> <span class="kt">integer</span><span class="p">;</span>
+    <span class="k">variable</span> <span class="n">y_result</span> <span class="o">:</span> <span class="kt">signed</span><span class="p">(</span><span class="mi">20</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">begin</span>
+    <span class="k">if</span> <span class="n">rising_edge</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span> <span class="k">then</span>
+      <span class="c1">-- data_table_var := data_table(number_of_taps-1) &amp; data_table(number_of_taps-2 downto 0);</span>
+      <span class="c1">-- putting the coeff table in a loop like this allows dynamic coeff updating</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span> <span class="k">loop</span>
+        <span class="n">coefficient_table_var</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">:=</span> <span class="n">single</span><span class="p">(</span><span class="n">to_integer</span><span class="p">(</span><span class="kt">unsigned</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">))))</span><span class="o">/</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+      <span class="k">end</span> <span class="k">loop</span><span class="p">;</span>
+      <span class="c1">-- tmp := reverse_order(data_table_var);</span>
+
+      <span class="c1">-- tmp2 := 0.15;  + to_integer(a);</span>
+      <span class="n">data_table_var</span> <span class="o">:=</span> <span class="n">data_table</span><span class="p">;</span>
+      <span class="n">tmp2</span> <span class="o">:=</span> <span class="n">single</span><span class="p">(</span><span class="n">to_integer</span><span class="p">(</span><span class="kt">signed</span><span class="p">(</span><span class="n">a</span><span class="p">)));</span>
+      <span class="n">data_table_var</span> <span class="o">:=</span> <span class="n">shift_fifo</span> <span class="p">(</span><span class="n">data_table_var</span><span class="p">,</span> <span class="n">tmp2</span><span class="p">);</span> <span class="c1">-- fifo =&gt;  data_in =&gt;</span>
+      <span class="n">data_table</span> <span class="o">&lt;=</span> <span class="n">data_table_var</span><span class="p">;</span>
+
+      <span class="c1">-- tmp3 := reverse_order(data_table_var);</span>
+      <span class="c1">-- tmp4 := 0;</span>
+      <span class="n">num_taps_minus_1</span> <span class="o">:=</span> <span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="n">fir_result</span> <span class="o">:=</span> <span class="n">sum_of_products</span> <span class="p">(</span>
+        <span class="n">lower_limit</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">upper_limit</span> <span class="o">=&gt;</span> <span class="n">number_of_taps</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">a_in</span> <span class="o">=&gt;</span> <span class="n">reverse_order</span><span class="p">(</span><span class="n">data_table_var</span><span class="p">),</span>
+        <span class="n">b_in</span> <span class="o">=&gt;</span> <span class="n">coefficient_table_var</span>
+      <span class="p">);</span>
+      <span class="n">y_result</span> <span class="o">:=</span> <span class="n">to_signed</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">fir_result</span><span class="p">),</span> <span class="n">y_result</span><span class="na">&#39;length</span><span class="p">);</span> <span class="c1">-- this causes an array bug to_std_logic_vector(</span>
+      <span class="n">y</span> <span class="o">&lt;=</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="n">y_result</span><span class="p">);</span> <span class="c1">-- this causes an array bug  -- to_twos_complement</span>
+    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">process</span><span class="p">;</span>
+
+<span class="k">end</span> <span class="nc">behavioural</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,132 @@
+---
+redirect_from:
+  - "matematicas/automatas/30-dte"
+interact_link: content/matematicas/automatas/30_dte.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Diagramas de transición de estado
+prev_page:
+  url: /matematicas/automatas/20_estado_transiciones.html
+  title: |-
+    Estado de un sistema discreto
+next_page:
+  url: /matematicas/automatas/40_asm.html
+  title: |-
+    Máquina de estado algorítmica
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Diagramas-de-transici&#243;n-de-estado"><strong>Diagramas de transici&#243;n de estado</strong><a class="anchor-link" href="#Diagramas-de-transici&#243;n-de-estado"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">nxpd</span> <span class="k">import</span> <span class="n">draw</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">cycle_graph</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">create_using</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">())</span>
+<span class="n">G</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;rankdir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LR&#39;</span>
+<span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;ipynb&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea output_execute_result">
+<img src="../../images/matematicas/automatas/30_dte_1_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">transitions.extensions</span> <span class="k">import</span> <span class="n">GraphMachine</span>
+
+<span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">]</span>
+<span class="n">transitions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;trigger&#39;</span><span class="p">:</span> <span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;dest&#39;</span><span class="p">:</span> <span class="s1">&#39;second&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;trigger&#39;</span><span class="p">:</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;second&#39;</span><span class="p">,</span> <span class="s1">&#39;dest&#39;</span><span class="p">:</span> <span class="s1">&#39;last&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;trigger&#39;</span><span class="p">:</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;last&#39;</span><span class="p">,</span> <span class="s1">&#39;dest&#39;</span><span class="p">:</span> <span class="s1">&#39;first&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;trigger&#39;</span><span class="p">:</span> <span class="s1">&#39;nope&#39;</span><span class="p">,</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;dest&#39;</span><span class="p">:</span> <span class="s1">&#39;first&#39;</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Basic</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="n">machine</span> <span class="o">=</span> <span class="n">GraphMachine</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">Basic</span><span class="p">,</span>
+                       <span class="n">states</span><span class="o">=</span><span class="n">states</span><span class="p">,</span>
+                       <span class="n">transitions</span><span class="o">=</span><span class="n">transitions</span><span class="p">,</span>
+                       <span class="n">initial</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">,</span>
+                       <span class="n">auto_transitions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">show_conditions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Bla&#39;</span>
+                       <span class="p">)</span>
+<span class="n">machine</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;./fsm.png&#39;</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="./fsm.png" alt="fsm" align="center"></p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

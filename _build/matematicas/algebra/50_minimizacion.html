@@ -1,0 +1,174 @@
+---
+redirect_from:
+  - "matematicas/algebra/50-minimizacion"
+interact_link: content/matematicas/algebra/50_minimizacion.ipynb
+kernel_name: python3
+has_widgets: false
+title: |-
+  Minimización de funciones lógicas
+prev_page:
+  url: /matematicas/algebra/40_expansiones_canonicas.html
+  title: |-
+    Expansiones canónicas
+next_page:
+  url: /matematicas/automatas/00_automatas_indice.html
+  title: |-
+    Autómatas de estados finitos
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Minimizaci&#243;n-de-funciones-l&#243;gicas"><strong>Minimizaci&#243;n de funciones l&#243;gicas</strong><a class="anchor-link" href="#Minimizaci&#243;n-de-funciones-l&#243;gicas"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mapas-de-Karnaugh">Mapas de Karnaugh<a class="anchor-link" href="#Mapas-de-Karnaugh"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Quine-McCluskey">Quine-McCluskey<a class="anchor-link" href="#Quine-McCluskey"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">quine_mccluskey.qm</span> <span class="k">import</span> <span class="n">QuineMcCluskey</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">QuineMcCluskey</span><span class="p">(</span><span class="n">use_xor</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fa_si</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span><span class="s1">&#39;si&#39;</span><span class="p">,</span> <span class="s1">&#39;inputs&#39;</span><span class="p">:[</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span><span class="s1">&#39;bi&#39;</span><span class="p">,</span><span class="s1">&#39;ci&#39;</span><span class="p">],</span> <span class="s1">&#39;minterms&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]}</span>
+<span class="n">fa_co</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span><span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="s1">&#39;inputs&#39;</span><span class="p">:[</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span><span class="s1">&#39;bi&#39;</span><span class="p">,</span><span class="s1">&#39;ci&#39;</span><span class="p">],</span> <span class="s1">&#39;minterms&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]}</span>
+<span class="n">fa_si</span><span class="p">[</span><span class="s1">&#39;solution&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">fa_si</span><span class="p">[</span><span class="s1">&#39;minterms&#39;</span><span class="p">],</span> <span class="n">num_bits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">fa_si</span><span class="p">[</span><span class="s1">&#39;inputs&#39;</span><span class="p">])))</span>
+<span class="n">fa_co</span><span class="p">[</span><span class="s1">&#39;solution&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">fa_co</span><span class="p">[</span><span class="s1">&#39;minterms&#39;</span><span class="p">],</span> <span class="n">num_bits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">fa_si</span><span class="p">[</span><span class="s1">&#39;inputs&#39;</span><span class="p">])))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">display_term</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;0&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">v</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">],</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span><span class="n">variables</span><span class="p">}</span>
+    <span class="n">tt</span> <span class="o">=</span> <span class="p">[</span><span class="n">var</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">if</span> <span class="n">pos</span> <span class="o">!=</span> <span class="s1">&#39;-&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s1">&#39;*&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">display_function</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">],</span><span class="s1">&#39; = &#39;</span><span class="p">,</span> <span class="n">display_term</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;solution&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;inputs&#39;</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;solution&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; + &#39;</span><span class="p">,</span> <span class="n">display_term</span><span class="p">(</span><span class="n">term</span><span class="p">,</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;inputs&#39;</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_function</span><span class="p">(</span><span class="n">fa_si</span><span class="p">)</span>
+<span class="n">display_function</span><span class="p">(</span><span class="n">fa_co</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>si  =  ai&#39;*bi&#39;*ci +  ai&#39;*bi*ci&#39; +  ai*bi&#39;*ci&#39; +  ai*bi*ci
+co  =  ai*ci +  ai*bi +  bi*ci
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Espresso">Espresso<a class="anchor-link" href="#Espresso"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+ 
+
