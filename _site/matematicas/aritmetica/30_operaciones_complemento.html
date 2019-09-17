@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Aritmética en complemento a dos con signo</title>
-  <meta name="description" content="Aritm&#233;tica en complemento a dos con signo  ">
+  <meta name="description" content="Interactivity with ipywidgets This is the faulty code (no Latex in the Output widget), and I changed the Button for an IntSlider     import ipywidgets as wid...">
 
   <link rel="canonical" href="http://0.0.0.0:4000//matematicas/aritmetica/30_operaciones_complemento.html">
   <link rel="alternate" type="application/rss+xml" title="Lógica Digital" href="http://0.0.0.0:4000//feed.xml">
@@ -26,7 +26,7 @@
   <meta property="og:url"         content="http://0.0.0.0:4000//matematicas/aritmetica/30_operaciones_complemento.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Aritmética en complemento a dos con signo" />
-<meta property="og:description" content="Aritm&#233;tica en complemento a dos con signo  " />
+<meta property="og:description" content="Interactivity with ipywidgets This is the faulty code (no Latex in the Output widget), and I changed the Button for an IntSlider     import ipywidgets as wid..." />
 <meta property="og:image"       content="http://0.0.0.0:4000/content/images/logo/logo_libro.png" />
 
 <meta name="twitter:card" content="summary">
@@ -38,9 +38,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000//matematicas/aritmetica/30_operaciones_complemento.html",
   "headline": "Aritmética en complemento a dos con signo",
-  "datePublished": "2019-09-13T14:34:49-05:00",
-  "dateModified": "2019-09-13T14:34:49-05:00",
-  "description": "Aritm&#233;tica en complemento a dos con signo  ",
+  "datePublished": "2019-09-16T22:00:52-05:00",
+  "dateModified": "2019-09-16T22:00:52-05:00",
+  "description": "Interactivity with ipywidgets This is the faulty code (no Latex in the Output widget), and I changed the Button for an IntSlider     import ipywidgets as wid...",
   "author": {
     "@type": "Person",
     "name": "Oscar Yáñez Suárez"
@@ -186,6 +186,38 @@ initFunction(findInputCells);
 
   <!-- Load nbinteract for widgets -->
   
+<!-- Include nbinteract for interactive widgets -->
+<script src="https://unpkg.com/nbinteract-core" async></script>
+
+<script>
+let interact
+
+const initializeNbinteract = () => {
+  // If NbInteract hasn't loaded, wait one second and try again
+  if (window.NbInteract === undefined) {
+    setTimeout(initializeNbinteract, 1000)
+    return
+  }
+
+  if (interact === undefined) {
+    console.log('Initializing nbinteract...')
+    interact = new window.NbInteract({
+      baseUrl: 'https://mybinder.org',
+      spec: 'oscarys/mtlogicadigital/master',
+      provider: 'gh',
+    })
+    window.interact = interact
+  } else {
+    console.log("nbinteract already initialized...")
+  }
+
+  interact.prepare()
+}
+
+// Initialize nbinteract
+initFunction(initializeNbinteract);
+</script>
+
 
   <!-- Load Thebelab for interactive widgets -->
   <!-- Include Thebelab for interactive code if it's enabled -->
@@ -1675,7 +1707,8 @@ initFunction(initPrint)
 
   <button id="interact-button-thebelab" class="interact-button">Activa celdas</button>
 
-  
+  <button id="interact-button-show-widgets" class="interact-button js-nbinteract-widget">Show Widgets</button>
+
   
 
 
@@ -1705,9 +1738,134 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Aritm&#233;tica-en-complemento-a-dos-con-signo"><strong>Aritm&#233;tica en complemento a dos con signo</strong><a class="anchor-link" href="#Aritm&#233;tica-en-complemento-a-dos-con-signo"> </a></h1>
+<h1 id="Interactivity-with-ipywidgets"><strong>Interactivity with ipywidgets</strong><a class="anchor-link" href="#Interactivity-with-ipywidgets"> </a></h1>
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="This-is-the-faulty-code-(no-Latex-in-the-Output-widget),-and-I-changed-the-Button-for-an-IntSlider">This is the faulty code (no Latex in the Output widget), and I changed the Button for an IntSlider<a class="anchor-link" href="#This-is-the-faulty-code-(no-Latex-in-the-Output-widget),-and-I-changed-the-Button-for-an-IntSlider"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_interactive">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Latex</span>
+<span class="n">val</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">inp1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">val</span><span class="p">,</span> <span class="nb">min</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
+                        <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">readout</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">out1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">out1</span><span class="o">.</span><span class="n">append_display_data</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\(</span><span class="si">{0}</span><span class="s1">^2 = </span><span class="si">{1}</span><span class="s1">\)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="o">*</span><span class="n">val</span><span class="p">)))</span>
+<span class="k">def</span> <span class="nf">handle_inp1_change</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">out1</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="n">out1</span><span class="o">.</span><span class="n">append_display_data</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\(</span><span class="si">{0}</span><span class="s1">^2 = </span><span class="si">{1}</span><span class="s1">\)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">new</span><span class="p">,</span><span class="n">value</span><span class="o">.</span><span class="n">new</span><span class="o">*</span><span class="n">value</span><span class="o">.</span><span class="n">new</span><span class="p">)))</span>
+<span class="n">inp1</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_inp1_change</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">inp1</span><span class="p">,</span><span class="n">out1</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper output_widget_view  }}">
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="4507fc56-6b2c-4dbf-83d9-9f3cce5ca729"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#4507fc56-6b2c-4dbf-83d9-9f3cce5ca729');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "283450ac271f4c118a12bf06ab5ff21d", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="This-code-does-work,-there's-no-Output-widget,-and-display-is-through-a-Label-widget">This code does work, there's no Output widget, and display is through a Label widget<a class="anchor-link" href="#This-code-does-work,-there's-no-Output-widget,-and-display-is-through-a-Label-widget"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_interactive">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="n">val</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">val</span><span class="p">,</span> <span class="nb">min</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
+                        <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">readout</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\(</span><span class="si">{0}</span><span class="s1">^2 = </span><span class="si">{1}</span><span class="s1">\)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">val</span><span class="o">*</span><span class="n">val</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">handle_inp_change</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\(</span><span class="si">{0}</span><span class="s1">^2 = </span><span class="si">{1}</span><span class="s1">\)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">new</span><span class="p">,</span><span class="n">value</span><span class="o">.</span><span class="n">new</span><span class="o">*</span><span class="n">value</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+<span class="n">inp</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_inp_change</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">inp</span><span class="p">,</span><span class="n">out</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper output_widget_view  }}">
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="0240b11e-0811-4ab7-92ed-98c9fb6e4e56"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#0240b11e-0811-4ab7-92ed-98c9fb6e4e56');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "2cca554b77cc4ba8958024fe884f6027", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 

@@ -38,8 +38,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://0.0.0.0:4000//matematicas/aritmetica/10_sistemas_numericos.html",
   "headline": "Sistemas numéricos",
-  "datePublished": "2019-09-13T14:34:49-05:00",
-  "dateModified": "2019-09-13T14:34:49-05:00",
+  "datePublished": "2019-09-16T22:00:52-05:00",
+  "dateModified": "2019-09-16T22:00:52-05:00",
   "description": "Sistemas num&#233;ricos posicionales El sistema decimal, con el que estamos familiarizados desde muy pequeños para contar y realizar operaciones, no es sino ...",
   "author": {
     "@type": "Person",
@@ -1801,7 +1801,7 @@ $$ (BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \c
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">Markdown</span>
 
 <span class="k">def</span> <span class="nf">ejemplo</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
     <span class="n">out</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1812,9 +1812,11 @@ $$ (BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \c
         <span class="n">base</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">val</span><span class="o">%</span><span class="k">10</span>)
         <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">//</span><span class="mi">10</span>
     <span class="n">base</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">base</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">base</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">latexstr</span> <span class="o">=</span> <span class="s1">&#39;$(</span><span class="si">{0}</span><span class="s1">)_&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;{&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;} = &#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">),</span><span class="n">base</span><span class="p">))</span>
+    <span class="n">cantidad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">valor</span><span class="p">),</span><span class="n">base</span><span class="p">)</span>
+    <span class="c1">#latexstr = &#39;$({0})_&#39;.format(valor) + &#39;{&#39; + &#39;{0}&#39;.format(base) + &#39;} = &#39; + &#39;{0}$&#39;.format(int(str(valor),base))</span>
+    <span class="n">latexstr</span> <span class="o">=</span> <span class="s1">&#39;$\LaTeX$&#39;</span>
     <span class="k">with</span> <span class="n">out</span><span class="p">:</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="n">latexstr</span><span class="p">))</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">latexstr</span><span class="p">))</span>
     
 <span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
     <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Genera ejemplo:&#39;</span><span class="p">,</span>
@@ -1824,7 +1826,8 @@ $$ (BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \c
     <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">btn</span><span class="p">,</span><span class="n">out</span><span class="p">]));</span>
+<span class="c1">#display(widgets.HBox([btn,out]));</span>
+<span class="n">display</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span><span class="n">out</span><span class="p">);</span>
 <span class="k">with</span> <span class="n">out</span><span class="p">:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$(number)_</span><span class="si">{base}</span><span class="s1"> = value$&#39;</span><span class="p">))</span>
 <span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">ejemplo</span><span class="p">);</span>
@@ -1845,13 +1848,33 @@ $$ (BEBE)_{16} = {16}^0 \cdot 14 + {16}^1 \cdot 11 + {16}^2 \cdot 14 + {16}^3 \c
 
  
  
-<div id="7629e541-8ec8-4bcf-809d-51a344b1a430"></div>
+<div id="858bf170-8c27-4e3e-9f3c-5d00ad6fb988"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#7629e541-8ec8-4bcf-809d-51a344b1a430');
+var element = $('#858bf170-8c27-4e3e-9f3c-5d00ad6fb988');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "4c9b436192514445b4ada208a7ca64ee", "version_major": 2, "version_minor": 0}
+{"model_id": "0dd86bc4c7ef48b7a24b430b1241ed30", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper output_widget_view  }}">
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="837495ea-a5e0-4fdc-876b-8f92dfc0470b"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#837495ea-a5e0-4fdc-876b-8f92dfc0470b');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "0d178545d63844a987c3406d0372c33b", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
